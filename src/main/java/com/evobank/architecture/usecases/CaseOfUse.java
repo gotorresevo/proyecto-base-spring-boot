@@ -1,0 +1,9 @@
+package com.evobank.architecture.usecases;
+
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Inherited
+public @interface CaseOfUse {
+}
