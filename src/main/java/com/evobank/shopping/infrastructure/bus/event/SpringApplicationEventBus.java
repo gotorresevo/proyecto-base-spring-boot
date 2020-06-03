@@ -1,4 +1,4 @@
-package com.evobank.shopping.shared.infrastructure.bus.event;
+package com.evobank.shopping.infrastructure.bus.event;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
 import com.evobank.architecture.domain.bus.event.EventBus;

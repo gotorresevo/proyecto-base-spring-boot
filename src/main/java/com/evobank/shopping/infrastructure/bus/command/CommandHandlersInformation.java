@@ -1,4 +1,4 @@
-package com.evobank.shopping.shared.infrastructure.bus.command;
+package com.evobank.shopping.infrastructure.bus.command;
 
 import com.evobank.architecture.domain.bus.command.Command;
 import com.evobank.architecture.domain.bus.command.CommandResultHandler;

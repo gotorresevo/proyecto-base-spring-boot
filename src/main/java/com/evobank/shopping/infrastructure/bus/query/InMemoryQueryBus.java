@@ -1,4 +1,4 @@
-package com.evobank.shopping.shared.infrastructure.bus.query;
+package com.evobank.shopping.infrastructure.bus.query;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.query.*;
