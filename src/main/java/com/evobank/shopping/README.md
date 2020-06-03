@@ -1,4 +1,5 @@
 # Modulo Shooping
-Estructura de paquetes del Modulo
+Estructura de paquetes del Modulo. 
+El modulo puede dividirse en varios submodulos si asi se ve pertinente. Si fuera el caso, cada modulo cumpliria con la arquitectura de manera independiente donde la comunicacion entre submodulos se debe realizar de manera desacoplada.
 
-![Arquitectura base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/ModuloShopping.png "Arquitectura base de una aplicacion orientada al dominio de evobanco")
+![Arquitectura base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/ModuloShopping.png "Description del modulo describiendo los submodulos")
