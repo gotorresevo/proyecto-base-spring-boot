@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@ToString
 public abstract class AggregateRoot {
     private List<DomainEvent> domainEvents = new ArrayList<>();
     private List<IValueObject> valueObjects = new ArrayList<>();
@@ -26,7 +25,7 @@ public abstract class AggregateRoot {
         return events;
     }
 
-    final protected void validValueObject(IValidator searcher){
+    protected final void validValueObject(IValidator searcher){
         DomainException domainException = new DomainException();
         this.valueObjects.stream().parallel().forEach(aValueObject -> {
             try {
@@ -39,7 +38,7 @@ public abstract class AggregateRoot {
             throw domainException;
     }
 
-    final protected void record(DomainEvent event) {
+    protected final void record(DomainEvent event) {
         domainEvents.add(event);
     }
 }

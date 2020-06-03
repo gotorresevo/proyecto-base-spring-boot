@@ -5,7 +5,7 @@ import lombok.Getter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Getter
@@ -26,16 +26,13 @@ public abstract class DomainEvent {
         this.occurredOn  = occurredOn;
     }
 
-    protected DomainEvent() {
-    }
-
     public abstract String eventName();
 
-    public abstract HashMap<String, Serializable> toPrimitives();
+    public abstract Map<String, Serializable> toPrimitives();
 
     public abstract DomainEvent fromPrimitives(
         String aggregateId,
-        HashMap<String, Serializable> body,
+        Map<String, Serializable> body,
         String eventId,
         String occurredOn
     );
