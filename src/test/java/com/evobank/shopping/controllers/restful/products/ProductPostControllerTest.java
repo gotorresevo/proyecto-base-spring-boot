@@ -15,4 +15,12 @@ final class ProductPostControllerTest extends ApplicationTestCase {
                 201);
     }
 
+    @Test
+    void create_a_product_with_name_incorrect() throws Exception {
+        assertRequestWithBody("POST",
+                "/products",
+                "{\"name\":\"25\"}",
+                400);
+    }
+
 }

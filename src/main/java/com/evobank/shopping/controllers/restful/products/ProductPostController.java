@@ -29,8 +29,10 @@ public final class ProductPostController extends ApiController {
     @PostMapping("/products")
     public ResponseEntity create(@RequestBody Request request) {
         try {
-            IdResponse idProduct = (IdResponse) dispatch(new CreateProductCommand(null, request.getName())).get();
-            return new ResponseEntity(idProduct, HttpStatus.CREATED);
+            return dispatch(new CreateProductCommand(null, request.getName())).map(response -> {
+                IdResponse idProduct = (IdResponse) response;
+                return new ResponseEntity(idProduct, HttpStatus.CREATED);
+            }).orElseThrow(() -> new CommandHandlerExecutionError(new DomainException("No se obtuvo el id")));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()

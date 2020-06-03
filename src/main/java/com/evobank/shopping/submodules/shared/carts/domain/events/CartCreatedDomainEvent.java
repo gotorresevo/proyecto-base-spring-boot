@@ -1,17 +1,15 @@
 package com.evobank.shopping.submodules.shared.carts.domain.events;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 public final class CartCreatedDomainEvent extends DomainEvent {
     private final String id;
 
@@ -20,26 +18,20 @@ public final class CartCreatedDomainEvent extends DomainEvent {
         this.id = id;
     }
 
-    public CartCreatedDomainEvent(String id, String eventId, String occurredOn) {
-        super(id, eventId, occurredOn);
-        this.id = id;
-    }
-
-
     @Override
     public String eventName() {
         return "product.created";
     }
 
     @Override
-    public HashMap<String, Serializable> toPrimitives() {
-        return new HashMap<String, Serializable>() {{
-            put("id", id);
-        }};
+    public Map<String, Serializable> toPrimitives() {
+        Map<String, Serializable> map = new HashMap<>();
+        map.put("id", id);
+        return map;
     }
 
     @Override
-    public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
+    public DomainEvent fromPrimitives(String aggregateId, Map<String, Serializable> body, String eventId, String occurredOn) {
         return null;
     }
 }

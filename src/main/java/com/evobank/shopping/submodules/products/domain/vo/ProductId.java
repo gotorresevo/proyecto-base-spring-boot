@@ -3,7 +3,6 @@ package com.evobank.shopping.submodules.products.domain.vo;
 import com.evobank.architecture.domain.service.IValidator;
 import com.evobank.architecture.domain.vo.IValueObject;
 import com.evobank.shopping.submodules.products.domain.exceptions.ProductIdException;
-import com.evobank.shopping.submodules.products.domain.service.ProductsValidator;
 import com.evobank.shopping.submodules.products.domain.vo.enums.Process;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -28,13 +27,9 @@ public final class ProductId implements IValueObject {
     }
 
     @Override
-    public void valid(IValidator finder) {
-        ProductsValidator productsValidator = (ProductsValidator) finder;
+    public void valid(IValidator validator) {
         ensureSetValueIfIsNull(getValue());
         ensureIdCorrect(getValue());
-        if (Process.CREATE.equals(process)) {
-            ensureThatTheProductIdDoesNotExist(productsValidator);
-        }
     }
 
     private void ensureSetValueIfIsNull(String value) {
@@ -49,10 +44,5 @@ public final class ProductId implements IValueObject {
         } catch (IllegalArgumentException e) {
             throw new ProductIdException(String.format("El formato del Id '%s' no es valido", getValue()));
         }
-    }
-
-    private void ensureThatTheProductIdDoesNotExist(ProductsValidator productsValidator) {
-        if (productsValidator.isThereAProductWithTheSameId(this))
-            throw new ProductIdException(String.format("El Id '%s' dado al producto ya existe en otro producto", getValue()));
     }
 }

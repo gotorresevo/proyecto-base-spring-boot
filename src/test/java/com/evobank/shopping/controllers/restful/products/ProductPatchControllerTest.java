@@ -24,36 +24,28 @@ final class ProductPatchControllerTest extends ApplicationTestCase {
         assertResponse("/products", 200, body);
     }
 
-    private void givenThereIsAProduct(String uuid, String body) throws Exception {
-        assertRequestWithBody("PUT", "/products/"+uuid, body, 201);
-    }
-
-    /*@Test
-    void create_two_product_with_the_same_name() throws Exception {
+    @Test
+    void update_a_product_with_name_incorrect() throws Exception {
+        givenThereIsAProduct("99ad55f5-6eab-4d73-b383-c63268e251e8",
+                "{\n" +
+                        "\"name\": \"IPhone X\"\n" +
+                        "}");
         assertRequestWithBody("PATCH",
-                "/products/98ad55f5-6eab-4d73-b383-c63268e251e8",
-                "{\"name\":\"SameName\"}",
-                201);
-        assertRequestWithBody("PATCH",
-                "/products/99ad55f5-6eab-4d73-b383-c63268e251e7",
-                "{\"name\":\"SameName\"}",
+                "/products/99ad55f5-6eab-4d73-b383-c63268e251e8",
+                "{\"name\":\"25\"}",
                 400);
     }
 
     @Test
-    void create_a_product_with_characters_no_valids() throws Exception {
+    void update_a_product_no_exist() throws Exception {
         assertRequestWithBody("PATCH",
-                "/products/99ad55f5-6eab-4d73-b383-c63268e251e1",
-                "{\"name\":\"\"}",
-                400);
-        assertRequestWithBody("PATCH",
-                "/products/99ad55f5-6eab-4d73-b383-c63268e251e2",
-                "{\"name\":12}",
-                400);
-        assertRequestWithBody("PATCH",
-                "/products/99ad55f5-6eab-4d73-b383-c63268e251e4",
-                "{}",
-                400);
-    }*/
+                "/products/99ad55f5-6eab-4d73-b383-c63268e251e7",
+                "{\"name\":\"ProductNoExist\"}",
+                404);
+    }
+
+    private void givenThereIsAProduct(String uuid, String body) throws Exception {
+        assertRequestWithBody("PUT", "/products/"+uuid, body, 201);
+    }
 
 }

@@ -39,10 +39,11 @@ final class AddProductToCartPutControllerTest extends ApplicationTestCase {
     }
 
     private void givenThereIsACart(String uuid) throws Exception {
-        assertRequest("PUT", "/cart/"+uuid, 201);
+        assertRequest("PUT", "/cart/" + uuid, 201);
     }
+
     private void givenThereIsAProduct(String uuid, String body) throws Exception {
-        assertRequestWithBody("PUT", "/products/"+uuid, body, 201);
+        assertRequestWithBody("PUT", "/products/" + uuid, body, 201);
     }
 
 }

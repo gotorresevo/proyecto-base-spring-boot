@@ -17,7 +17,6 @@ public final class CommandHandlersInformation {
     public CommandHandlersInformation() {
         Reflections                          reflections = new Reflections("com.evobank");
         Set<Class<? extends CommandResultHandler>> classes     = reflections.getSubTypesOf(CommandResultHandler.class);
-
         indexedCommandResultHandlers = formatHandlers(classes);
     }
 

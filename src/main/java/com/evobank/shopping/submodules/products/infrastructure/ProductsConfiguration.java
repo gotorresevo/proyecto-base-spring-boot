@@ -1,11 +1,12 @@
 package com.evobank.shopping.submodules.products.infrastructure;
 
-import org.springframework.context.annotation.Configuration;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * Esta clase es de configuracion para el modulo de productos
  */
-@Configuration
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ProductsConfiguration {
-    public static final String PACKAGE_MODULE = "com.evobank.shoppingcart.modules.products";
+    public static final String PACKAGE_MODULE = "com.evobank.shopping.modules.products";
 }

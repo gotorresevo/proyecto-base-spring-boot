@@ -1,17 +1,15 @@
 package com.evobank.shopping.submodules.shared.carts.domain.events;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 public final class ProductAggregateToCartDomainEvent extends DomainEvent {
     private final String idCart;
     private final String idProduct;
@@ -22,12 +20,6 @@ public final class ProductAggregateToCartDomainEvent extends DomainEvent {
         this.idCart = idCart;
     }
 
-    public ProductAggregateToCartDomainEvent(String idProduct, String eventId, String occurredOn, String idCart) {
-        super(idProduct, eventId, occurredOn);
-        this.idCart = idCart;
-        this.idProduct = idProduct;
-    }
-
 
     @Override
     public String eventName() {
@@ -35,15 +27,15 @@ public final class ProductAggregateToCartDomainEvent extends DomainEvent {
     }
 
     @Override
-    public HashMap<String, Serializable> toPrimitives() {
-        return new HashMap<String, Serializable>() {{
-            put("idCart", idCart);
-            put("idProduct", idProduct);
-        }};
+    public Map<String, Serializable> toPrimitives() {
+        Map<String, Serializable> map = new HashMap<>();
+        map.put("idCart", idCart);
+        map.put("idProduct", idProduct);
+        return map;
     }
 
     @Override
-    public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
+    public DomainEvent fromPrimitives(String aggregateId, Map<String, Serializable> body, String eventId, String occurredOn) {
         return null;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class DomainException extends RuntimeException {
     @Getter
-    private List<RuntimeException> exceptions = new ArrayList<>();
+    private final List<RuntimeException> exceptions = new ArrayList<>();
 
     public DomainException(String msn){
         super(msn);

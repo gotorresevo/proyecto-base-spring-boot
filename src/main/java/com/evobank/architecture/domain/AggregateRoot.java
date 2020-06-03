@@ -4,7 +4,6 @@ import com.evobank.architecture.domain.bus.event.DomainEvent;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.domain.service.IValidator;
 import com.evobank.architecture.domain.vo.IValueObject;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +18,7 @@ public abstract class AggregateRoot {
         this.valueObjects.addAll(Arrays.asList(valueObjects));
     }
 
-    final public List<DomainEvent> pullDomainEvents() {
+    public final List<DomainEvent> pullDomainEvents() {
         List<DomainEvent> events = domainEvents;
         domainEvents = Collections.emptyList();
         return events;
@@ -30,7 +29,7 @@ public abstract class AggregateRoot {
         this.valueObjects.stream().parallel().forEach(aValueObject -> {
             try {
                 aValueObject.valid(searcher);
-            } catch (DomainException e) {
+            } catch (RuntimeException e) {
                 domainException.add(e);
             }
         });

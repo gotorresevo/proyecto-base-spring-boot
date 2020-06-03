@@ -17,10 +17,6 @@ public class CartValidator implements IValidator {
         return repository.isThereACartWithTheSameId(id.getValue());
     }
 
-    public boolean isThereAProductAggregateWithTheSameId(ProductInCartProduct productInCartProduct) {
-        return repository.isThereAProductAggregateWithTheSameId(productInCartProduct);
-    }
-
     public boolean isThereAProductWithId(ProductInCartProduct product) {
         return repository.isThereAProductWithId(product);
     }

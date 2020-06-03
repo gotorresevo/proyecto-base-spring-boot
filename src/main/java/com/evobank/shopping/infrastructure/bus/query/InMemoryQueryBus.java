@@ -18,14 +18,14 @@ public final class InMemoryQueryBus implements QueryBus {
     }
 
     @Override
-    public Optional<Response> ask(Query query) throws QueryHandlerExecutionError {
+    public Optional<Response> ask(Query query) {
         try {
             Class<? extends QueryHandler> queryHandlerClass = information.search(query.getClass());
 
             QueryHandler handler = context.getBean(queryHandlerClass);
 
             return handler.handle(query);
-        } catch (Throwable error) {
+        } catch (Exception error) {
             throw new QueryHandlerExecutionError(error);
         }
     }

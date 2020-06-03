@@ -31,10 +31,7 @@ public final class CartId implements IValueObject {
     @Override
     public void valid(IValidator finder) {
         CartValidator productsValidator = (CartValidator) finder;
-        ensureSetValueIfIsNull(getValue());
         ensureIdCorrect(getValue());
-        if (Process.CREATE.equals(getProcess()))
-            ensureThatTheCartIdDoesNotExist(productsValidator);
         if (Process.ADD_PRODUCT.equals(getProcess()))
             ensureThatTheCartIdExist(productsValidator);
     }
@@ -42,12 +39,6 @@ public final class CartId implements IValueObject {
     private void ensureThatTheCartIdExist(CartValidator productsValidator) {
         if (!productsValidator.isThereACartWithTheSameId(this)){
             throw new CartNotFoundException(String.format("Carrito con id '%s' no encontrado", getValue()));
-        }
-    }
-
-    private void ensureSetValueIfIsNull(String value) {
-        if (null == value) {
-            this.value = UUID.randomUUID().toString();
         }
     }
 
@@ -59,10 +50,5 @@ public final class CartId implements IValueObject {
                 throw new CartNotFoundException(String.format("Carrito con id '%s' no encontrado", getValue()));
             throw new CartIdException(String.format("El formato del Id '%s' no es valido", getValue()));
         }
-    }
-
-    private void ensureThatTheCartIdDoesNotExist(CartValidator productsValidator) {
-        if (productsValidator.isThereACartWithTheSameId(this))
-            throw new CartIdException(String.format("El Id '%s' dado al producto ya existe en otro producto", getValue()));
     }
 }

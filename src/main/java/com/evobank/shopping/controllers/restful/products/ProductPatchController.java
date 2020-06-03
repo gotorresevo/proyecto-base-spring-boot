@@ -31,12 +31,10 @@ public final class ProductPatchController extends ApiController {
         try {
             dispatch(new UpdateProductCommand(idProduct, request.getName()));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
-            DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
-            for (RuntimeException runtimeException : domainException.getExceptions()){
-                if(runtimeException instanceof ProductNotFoundException){
-                    return new ResponseEntity(HttpStatus.NOT_FOUND);
-                }
+            if(commandHandlerExecutionError.getCause() instanceof ProductNotFoundException){
+                return new ResponseEntity(HttpStatus.NOT_FOUND);
             }
+            DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()
                 .map(e -> new IOError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), "Some message"))
                 .collect(Collectors.toList());

@@ -1,30 +1,23 @@
 package com.evobank.shopping.submodules.shared.products.domain.events;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
 public final class ProductCreatedDomainEvent extends DomainEvent {
-    private final String id, name;
+    private final String id;
+    private final String name;
 
     public ProductCreatedDomainEvent(String id, String name) {
         super(id);
         this.name = name;
         this.id = id;
-    }
-
-    public ProductCreatedDomainEvent(String id, String eventId, String occurredOn, String name) {
-        super(id, eventId, occurredOn);
-        this.id = name;
-        this.name = name;
     }
 
 
@@ -34,14 +27,14 @@ public final class ProductCreatedDomainEvent extends DomainEvent {
     }
 
     @Override
-    public HashMap<String, Serializable> toPrimitives() {
-        return new HashMap<String, Serializable>() {{
-            put("name", name);
-        }};
+    public Map<String, Serializable> toPrimitives() {
+        Map map = new HashMap();
+        map.put("name", name);
+        return map;
     }
 
     @Override
-    public DomainEvent fromPrimitives(String aggregateId, HashMap<String, Serializable> body, String eventId, String occurredOn) {
+    public DomainEvent fromPrimitives(String aggregateId, Map<String, Serializable> body, String eventId, String occurredOn) {
         return null;
     }
 }

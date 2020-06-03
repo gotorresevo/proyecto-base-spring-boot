@@ -17,14 +17,14 @@ public final class InMemoryCommandBus implements CommandBus {
     }
 
     @Override
-    public Optional dispatch(Command command) throws CommandHandlerExecutionError {
+    public Optional dispatch(Command command) {
         try {
             Class<? extends CommandResultHandler> commandHandlerClass = information.search(command.getClass());
 
             CommandResultHandler handler = context.getBean(commandHandlerClass);
 
             return handler.handle(command);
-        } catch (Throwable error) {
+        } catch (Exception error) {
             throw new CommandHandlerExecutionError(error);
         }
     }

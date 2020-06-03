@@ -35,6 +35,13 @@ public final class ProductMother {
         );
     }
 
+    public static Product fromRequestWithNameNull(UpdateProductCommand command, ProductsValidator searcher) {
+        return update(
+                ProductIdMother.update(command.getId()),
+                ProductNameMother.update(null), searcher
+        );
+    }
+
     public static Product random() {
         return create(ProductIdMother.random(), ProductNameMother.random(), Mockito.mock(ProductsValidator.class));
     }

@@ -25,15 +25,8 @@ public final class ProductInCartProduct implements IValueObject {
     @Override
     public void valid(IValidator finder) {
         CartValidator productsValidator = (CartValidator) finder;
-        ensureSetValueIfIsNull(getValue());
         ensureIdCorrect(getValue());
         ensureThatTheProductExist(productsValidator);
-    }
-
-    private void ensureSetValueIfIsNull(String value) {
-        if (null == value) {
-            this.value = UUID.randomUUID().toString();
-        }
     }
 
     private void ensureIdCorrect(String value) {
