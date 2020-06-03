@@ -1,4 +1,4 @@
-package com.evobank.shopping.controllers.restfull.carts;
+package com.evobank.shopping.controllers.restful.carts;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.evobank.shopping.controllers.restfull.products;
+package com.evobank.shopping.controllers.restful.products;
 
 import com.evobank.shopping.controllers.ApplicationTestCase;
 import org.junit.jupiter.api.Test;

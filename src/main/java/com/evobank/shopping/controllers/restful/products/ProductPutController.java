@@ -1,4 +1,4 @@
-package com.evobank.shopping.controllers.restfull.products;
+package com.evobank.shopping.controllers.restful.products;
 
 import com.evobank.architecture.application.ApiController;
 import com.evobank.architecture.domain.bus.command.CommandBus;
@@ -7,12 +7,13 @@ import com.evobank.architecture.domain.bus.query.QueryBus;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.IOError;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.products.application.ProductsResponse;
-import com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsQuery;
+import com.evobank.shopping.submodules.products.application.create.CreateProductCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,18 +21,17 @@ import java.util.stream.Collectors;
 
 @RestController
 @Slf4j
-public final class ProductsGetController extends ApiController {
+public final class ProductPutController extends ApiController {
 
     @InjectDependency
-    public ProductsGetController(QueryBus queryBus, CommandBus commandBus) {
+    public ProductPutController(QueryBus queryBus, CommandBus commandBus) {
         super(queryBus, commandBus);
     }
 
-    @GetMapping("/products")
-    public ResponseEntity search() {
+    @PutMapping("/products/{idProduct}")
+    public ResponseEntity create(@PathVariable String idProduct, @RequestBody Request request) {
         try {
-            ProductsResponse productsResponse = (ProductsResponse) ask(new SearchAllProductsQuery()).get();
-            return new ResponseEntity(productsResponse.getProducts(), HttpStatus.OK);
+            dispatch(new CreateProductCommand(idProduct, request.getName()));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()
@@ -39,6 +39,7 @@ public final class ProductsGetController extends ApiController {
                 .collect(Collectors.toList());
             return new ResponseEntity(list, HttpStatus.BAD_REQUEST);
         }
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 }
 

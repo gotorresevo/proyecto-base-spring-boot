@@ -242,29 +242,29 @@ append=true,excludes=*MethodAccess,output=file
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest
 11:32:58.328 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
 11:32:58.366 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.C
 acheAwareContextLoaderDelegate)]
-11:32:58.465 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest] from class [org.springframework.boo
+11:32:58.465 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest] from class [org.springframework.boo
 t.test.context.SpringBootTestContextBootstrapper]
-11:32:58.521 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControll
+11:32:58.521 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControll
 erTest], using SpringBootContextLoader
-11:32:58.535 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest]: class path resou
+11:32:58.535 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest]: class path resou
 rce [com/evobank/shopping/controllers/restfull/carts/AddProductToCartPutControllerTest-context.xml] does not exist
-11:32:58.536 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest]: class path resou
+11:32:58.536 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest]: class path resou
 rce [com/evobank/shopping/controllers/restfull/carts/AddProductToCartPutControllerTestContext.groovy] does not exist
-11:32:58.536 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest]: no resource fo
+11:32:58.536 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest]: no resource fo
 und for suffixes {-context.xml, Context.groovy}.
-11:32:58.538 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest]
+11:32:58.538 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest]
 : AddProductToCartPutControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
 11:32:58.695 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.evobank.shopping.controller
 s.restfull.carts.AddProductToCartPutControllerTest]
 11:32:58.905 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\gotorres_sel\Desktop\shoppingcart\target\classes\com\evobank\shopping\ShoppingApplic
 ation.class]
-11:32:58.907 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.carts.AddProductToCa
+11:32:58.907 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.carts.AddProductToCa
 rtPutControllerTest
-11:32:59.173 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest]: using defaults
+11:32:59.173 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest]: using defaults
 .
 11:32:59.175 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestEx
 ecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceS
@@ -347,15 +347,15 @@ ort=-1}
 2020-06-03 11:33:11.739  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 26 ms
 2020-06-03 11:33:11.762  INFO 14540 --- [           main] .c.r.c.AddProductToCartPutControllerTest : Started AddProductToCartPutControllerTest in 1.957 seconds (JVM running for 15.147)
 2020-06-03 11:33:11.813  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.635 s - in com.evobank.shopping.controllers.restfull.carts.AddProductToCartPutControllerTest
-[INFO] Running com.evobank.shopping.controllers.restfull.carts.CartPutControllerTest
-2020-06-03 11:33:11.822  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.carts.CartPutControllerTest], u
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.635 s - in com.evobank.shopping.controllers.restful.carts.AddProductToCartPutControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.carts.CartPutControllerTest
+2020-06-03 11:33:11.822  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.carts.CartPutControllerTest], u
 sing SpringBootContextLoader
-2020-06-03 11:33:11.825  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.carts.CartPutControllerTest]: no resource fou
+2020-06-03 11:33:11.825  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.carts.CartPutControllerTest]: no resource fou
 nd for suffixes {-context.xml, Context.groovy}.
-2020-06-03 11:33:11.827  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.carts.CartPutControllerTest]: CartPutContr
+2020-06-03 11:33:11.827  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.carts.CartPutControllerTest]: CartPutContr
 ollerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-03 11:33:11.833  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.carts.CartPutContr
+2020-06-03 11:33:11.833  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.carts.CartPutContr
 ollerTest
 2020-06-03 11:33:11.839  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTest
 ExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServic
@@ -407,15 +407,15 @@ springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListen
 2020-06-03 11:33:16.287  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 18 ms
 2020-06-03 11:33:16.297  INFO 14540 --- [           main] c.e.s.c.r.carts.CartPutControllerTest    : Started CartPutControllerTest in 1.956 seconds (JVM running for 19.683)
 2020-06-03 11:33:16.321  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.431 s - in com.evobank.shopping.controllers.restfull.carts.CartPutControllerTest
-[INFO] Running com.evobank.shopping.controllers.restfull.products.ProductPatchControllerTest
-2020-06-03 11:33:16.326  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.products.ProductPatchController
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.431 s - in com.evobank.shopping.controllers.restful.carts.CartPutControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.products.ProductPatchControllerTest
+2020-06-03 11:33:16.326  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.products.ProductPatchController
 Test], using SpringBootContextLoader
-2020-06-03 11:33:16.328  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.products.ProductPatchControllerTest]: no reso
+2020-06-03 11:33:16.328  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.products.ProductPatchControllerTest]: no reso
 urce found for suffixes {-context.xml, Context.groovy}.
-2020-06-03 11:33:16.328  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.products.ProductPatchControllerTest]: Prod
+2020-06-03 11:33:16.328  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.products.ProductPatchControllerTest]: Prod
 uctPatchControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-03 11:33:16.357  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.products.ProductPa
+2020-06-03 11:33:16.357  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.products.ProductPa
 tchControllerTest
 2020-06-03 11:33:16.363  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTest
 ExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServic
@@ -448,15 +448,15 @@ springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListen
 2020-06-03 11:33:18.282  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 16 ms
 2020-06-03 11:33:18.295  INFO 14540 --- [           main] c.e.s.c.r.p.ProductPatchControllerTest   : Started ProductPatchControllerTest in 1.926 seconds (JVM running for 21.681)
 2020-06-03 11:33:18.380  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.993 s - in com.evobank.shopping.controllers.restfull.products.ProductPatchControllerTest
-[INFO] Running com.evobank.shopping.controllers.restfull.products.ProductPostControllerTest
-2020-06-03 11:33:18.386  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.products.ProductPostControllerT
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.993 s - in com.evobank.shopping.controllers.restful.products.ProductPatchControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.products.ProductPostControllerTest
+2020-06-03 11:33:18.386  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.products.ProductPostControllerT
 est], using SpringBootContextLoader
-2020-06-03 11:33:18.387  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.products.ProductPostControllerTest]: no resou
+2020-06-03 11:33:18.387  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.products.ProductPostControllerTest]: no resou
 rce found for suffixes {-context.xml, Context.groovy}.
-2020-06-03 11:33:18.387  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.products.ProductPostControllerTest]: Produ
+2020-06-03 11:33:18.387  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.products.ProductPostControllerTest]: Produ
 ctPostControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-03 11:33:18.391  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.products.ProductPo
+2020-06-03 11:33:18.391  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.products.ProductPo
 stControllerTest
 2020-06-03 11:33:18.394  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTest
 ExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServic
@@ -489,15 +489,15 @@ rg.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionLis
 2020-06-03 11:33:20.081  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 12 ms
 2020-06-03 11:33:20.090  INFO 14540 --- [           main] c.e.s.c.r.p.ProductPostControllerTest    : Started ProductPostControllerTest in 1.692 seconds (JVM running for 23.476)
 2020-06-03 11:33:20.114  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.718 s - in com.evobank.shopping.controllers.restfull.products.ProductPostControllerTest
-[INFO] Running com.evobank.shopping.controllers.restfull.products.ProductPutControllerTest
-2020-06-03 11:33:20.118  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.products.ProductPutControllerTe
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.718 s - in com.evobank.shopping.controllers.restful.products.ProductPostControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.products.ProductPutControllerTest
+2020-06-03 11:33:20.118  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.products.ProductPutControllerTe
 st], using SpringBootContextLoader
-2020-06-03 11:33:20.120  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.products.ProductPutControllerTest]: no resour
+2020-06-03 11:33:20.120  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.products.ProductPutControllerTest]: no resour
 ce found for suffixes {-context.xml, Context.groovy}.
-2020-06-03 11:33:20.121  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.products.ProductPutControllerTest]: Produc
+2020-06-03 11:33:20.121  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.products.ProductPutControllerTest]: Produc
 tPutControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-03 11:33:20.124  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.products.ProductPu
+2020-06-03 11:33:20.124  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.products.ProductPu
 tControllerTest
 2020-06-03 11:33:20.127  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTest
 ExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServic
@@ -568,15 +568,15 @@ g.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionList
 2020-06-03 11:33:24.096  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 11 ms
 2020-06-03 11:33:24.103  INFO 14540 --- [           main] c.e.s.c.r.p.ProductPutControllerTest     : Started ProductPutControllerTest in 1.032 seconds (JVM running for 27.489)
 2020-06-03 11:33:24.131  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.969 s - in com.evobank.shopping.controllers.restfull.products.ProductPutControllerTest
-[INFO] Running com.evobank.shopping.controllers.restfull.products.ProductsGetControllerTest
-2020-06-03 11:33:24.136  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restfull.products.ProductsGetControllerT
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.969 s - in com.evobank.shopping.controllers.restful.products.ProductPutControllerTest
+[INFO] Running com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest
+2020-06-03 11:33:24.136  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.evobank.shopping.controllers.restful.products.ProductsGetControllerT
 est], using SpringBootContextLoader
-2020-06-03 11:33:24.137  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restfull.products.ProductsGetControllerTest]: no resou
+2020-06-03 11:33:24.137  INFO 14540 --- [           main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest]: no resou
 rce found for suffixes {-context.xml, Context.groovy}.
-2020-06-03 11:33:24.138  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restfull.products.ProductsGetControllerTest]: Produ
+2020-06-03 11:33:24.138  INFO 14540 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest]: Produ
 ctsGetControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-03 11:33:24.141  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restfull.products.ProductsG
+2020-06-03 11:33:24.141  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.evobank.shopping.ShoppingApplication for test class com.evobank.shopping.controllers.restful.products.ProductsG
 etControllerTest
 2020-06-03 11:33:24.144  INFO 14540 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTest
 ExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServic
@@ -628,7 +628,7 @@ Listener@5988407b, org.springframework.boot.test.autoconfigure.web.client.MockRe
 2020-06-03 11:33:26.598  INFO 14540 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 9 ms
 2020-06-03 11:33:26.604  INFO 14540 --- [           main] c.e.s.c.r.p.ProductsGetControllerTest    : Started ProductsGetControllerTest in 0.964 seconds (JVM running for 29.99)
 2020-06-03 11:33:26.623  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.505 s - in com.evobank.shopping.controllers.restfull.products.ProductsGetControllerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.505 s - in com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest
 [INFO] Running com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommandHandlerTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommandHandlerTest
 [INFO] Running com.evobank.shopping.submodules.carts.application.create.CreateCartCommandHandlerTest
