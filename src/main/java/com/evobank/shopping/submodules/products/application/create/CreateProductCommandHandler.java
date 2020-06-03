@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
-public final class gitCreateProductCommandHandler implements CommandResultHandler<CreateProductCommand, IdResponse> {
+public final class CreateProductCommandHandler implements CommandResultHandler<CreateProductCommand, IdResponse> {
 
     private final ProductCreator creator;
 
