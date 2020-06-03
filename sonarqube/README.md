@@ -1,4 +1,4 @@
-# proyecto-base-spring-boot
+# Configuracion de SONARQUBE en local
 Proyecto de referencia para construir aplicaciones Spring Boot
 
 ### Prerequisitos:
