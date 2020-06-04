@@ -14,19 +14,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
 
-class CreateCartCommandHandlerTest extends CartsModuleUnitTestCase {
+class CreateCartIICommandHandlerTest extends CartsModuleUnitTestCase {
 
-    private CreateCartCommandHandler handler;
+    private CreateCartICommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new CreateCartCommandHandler(new CartCreator(repository, eventBus, factory));
+        handler = new CreateCartICommandHandler(new CartCreator(repository, IEventBus, factory));
     }
 
     @Test
     void create_a_product_valid() {
-        CreateCartCommand command = CreateCartCommandMother.random();
+        CreateCartICommand command = CreateCartCommandMother.random();
 
         Cart product = CartMother.fromRequest(command, searcher);
         CartCreatedDomainEvent domainEvent = CartCreatedDomainEventMother.fromCart(product);

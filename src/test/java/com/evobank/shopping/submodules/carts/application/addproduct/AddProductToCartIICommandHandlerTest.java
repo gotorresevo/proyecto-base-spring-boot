@@ -15,19 +15,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
 
-public class AddProductToCartCommandHandlerTest extends CartsModuleUnitTestCase {
+public class AddProductToCartIICommandHandlerTest extends CartsModuleUnitTestCase {
 
-    private AddProductToCartCommandHandler handler;
+    private AddProductToCartICommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new AddProductToCartCommandHandler(new ProductAggregatorToCart(repository, eventBus, factory));
+        handler = new AddProductToCartICommandHandler(new ProductAggregatorToCart(repository, IEventBus, factory));
     }
 
     @Test
     void add_a_product_valid() {
-        AddProductToCartCommand command = AddProductToCartCommandMother.random();
+        AddProductToCartICommand command = AddProductToCartCommandMother.random();
         super.whenValidIfTheProductExistReturnTrue(command.getIdProduct());
         super.whenValidIfTheCartExistReturnTrue(command.getIdCart());
         ProductInCart productInCart = ProductInCartMother.fromRequest(command, searcher);

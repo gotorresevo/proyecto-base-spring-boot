@@ -5,19 +5,19 @@ import com.evobank.shopping.submodules.products.usecases.ProductsSearcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class SearchAllProductsQueryHandlerTest extends ProductsModuleUnitTestCase {
+class SearchAllProductsIIQueryHandlerTest extends ProductsModuleUnitTestCase {
 
-    private SearchAllProductsQueryHandler handler;
+    private SearchAllProductsIQueryHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new SearchAllProductsQueryHandler(new ProductsSearcher(repository));
+        handler = new SearchAllProductsIQueryHandler(new ProductsSearcher(repository));
     }
 
     @Test
     void find_all_products() {
-        SearchAllProductsQuery query = SearchAllProductsQueryMother.random();
+        SearchAllProductsIQuery query = SearchAllProductsQueryMother.random();
         handler.handle(query);
         shouldHaveSearched();
     }

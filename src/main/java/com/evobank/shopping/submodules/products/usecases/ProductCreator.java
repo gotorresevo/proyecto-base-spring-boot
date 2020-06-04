@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.products.usecases;
 
-import com.evobank.architecture.domain.bus.event.EventBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.architecture.usecases.CaseOfUse;
 import com.evobank.shopping.submodules.products.domain.IProductsRepository;
@@ -16,13 +16,13 @@ import java.util.Optional;
 @CaseOfUse
 public final class ProductCreator {
     private final IProductsRepository productRepository;
-    private final EventBus eventBus;
+    private final IEventBus IEventBus;
     private final ProductFactory factory;
 
     public Optional<Product> create(ProductId id, ProductName name) {
         Product product = factory.create(id, name);
         productRepository.save(product);
-        eventBus.publish(product.pullDomainEvents());
+        IEventBus.publish(product.pullDomainEvents());
         return Optional.ofNullable(product);
     }
 }

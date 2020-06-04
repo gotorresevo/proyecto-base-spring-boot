@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.products.usecases;
 
-import com.evobank.architecture.domain.bus.event.EventBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.architecture.usecases.CaseOfUse;
 import com.evobank.shopping.submodules.products.domain.IProductsRepository;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @CaseOfUse
 public final class ProductUpdater {
     private final IProductsRepository productRepository;
-    private final EventBus eventBus;
+    private final IEventBus IEventBus;
     private final ProductFactory factory;
 
     public Optional<Product> update(ProductId id, ProductName name) {
@@ -27,7 +27,7 @@ public final class ProductUpdater {
         Product product = factory.update(id, null == name.getValue() ? current.getName() : name);
 
         productRepository.update(product);
-        eventBus.publish(product.pullDomainEvents());
+        IEventBus.publish(product.pullDomainEvents());
         return Optional.ofNullable(product);
     }
 }

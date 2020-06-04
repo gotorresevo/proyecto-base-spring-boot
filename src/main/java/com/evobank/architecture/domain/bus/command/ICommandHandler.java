@@ -1,5 +1,5 @@
 package com.evobank.architecture.domain.bus.command;
 
-public interface CommandHandler<T extends Command> {
+public interface ICommandHandler<T extends ICommand> {
     void handle(T command);
 }

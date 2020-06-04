@@ -8,23 +8,23 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public final class InMemoryQueryBus implements QueryBus {
+public final class InMemoryIQueryBus implements IQueryBus {
     private final QueryHandlersInformation information;
     private final ApplicationContext context;
 
-    public InMemoryQueryBus(QueryHandlersInformation information, ApplicationContext context) {
+    public InMemoryIQueryBus(QueryHandlersInformation information, ApplicationContext context) {
         this.information = information;
         this.context     = context;
     }
 
     @Override
-    public Optional<Response> ask(Query query) {
+    public Optional<Response> ask(IQuery IQuery) {
         try {
-            Class<? extends QueryHandler> queryHandlerClass = information.search(query.getClass());
+            Class<? extends IQueryHandler> queryHandlerClass = information.search(IQuery.getClass());
 
-            QueryHandler handler = context.getBean(queryHandlerClass);
+            IQueryHandler handler = context.getBean(queryHandlerClass);
 
-            return handler.handle(query);
+            return handler.handle(IQuery);
         } catch (Exception error) {
             throw new QueryHandlerExecutionError(error);
         }

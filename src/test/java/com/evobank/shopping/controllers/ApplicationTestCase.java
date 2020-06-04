@@ -1,7 +1,7 @@
 package com.evobank.shopping.controllers;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import com.evobank.architecture.domain.bus.event.EventBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,7 +27,7 @@ public abstract class ApplicationTestCase {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
-    private EventBus eventBus;
+    private IEventBus IEventBus;
 
     protected void assertResponse(
         String endpoint,
@@ -100,6 +100,6 @@ public abstract class ApplicationTestCase {
     }
 
     protected void givenISendEventsToTheBus(DomainEvent... domainEvents) {
-        eventBus.publish(Arrays.asList(domainEvents));
+        IEventBus.publish(Arrays.asList(domainEvents));
     }
 }

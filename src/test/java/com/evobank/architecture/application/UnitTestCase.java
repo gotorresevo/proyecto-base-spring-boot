@@ -2,9 +2,9 @@ package com.evobank.architecture.application;
 
 import com.evobank.architecture.domain.UuidGenerator;
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import com.evobank.architecture.domain.bus.event.EventBus;
-import com.evobank.architecture.domain.bus.query.Query;
-import com.evobank.architecture.domain.bus.query.QueryBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
+import com.evobank.architecture.domain.bus.query.IQuery;
+import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.domain.bus.Response;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -15,19 +15,19 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 
 public abstract class UnitTestCase {
-    protected EventBus eventBus;
-    protected QueryBus queryBus;
+    protected IEventBus IEventBus;
+    protected IQueryBus IQueryBus;
     protected UuidGenerator uuidGenerator;
 
     @BeforeEach
     protected void setUp() {
-        eventBus      = mock(EventBus.class);
-        queryBus      = mock(QueryBus.class);
+        IEventBus = mock(IEventBus.class);
+        IQueryBus = mock(IQueryBus.class);
         uuidGenerator = mock(UuidGenerator.class);
     }
 
     public void shouldHavePublished(List<DomainEvent> domainEvents) {
-        verify(eventBus, atLeastOnce()).publish(domainEvents);
+        verify(IEventBus, atLeastOnce()).publish(domainEvents);
     }
 
     public void shouldHavePublished(DomainEvent domainEvent) {
@@ -42,7 +42,7 @@ public abstract class UnitTestCase {
         when(uuidGenerator.generate()).thenReturn(uuid, others);
     }
 
-    public void shouldAsk(Query query, Response response) {
-        when(queryBus.ask(query)).thenReturn(Optional.ofNullable(response));
+    public void shouldAsk(IQuery IQuery, Response response) {
+        when(IQueryBus.ask(IQuery)).thenReturn(Optional.ofNullable(response));
     }
 }

@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.carts.domain;
 
-import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommand;
+import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartICommand;
 import com.evobank.shopping.submodules.carts.domain.service.CartValidator;
 import com.evobank.shopping.submodules.carts.domain.vo.CartId;
 import com.evobank.shopping.submodules.carts.domain.vo.CartIdMother;
@@ -14,7 +14,7 @@ public final class ProductInCartMother {
         return ProductInCart.create(id, product, validator);
     }
 
-    public static ProductInCart fromRequest(AddProductToCartCommand command, CartValidator validator) {
+    public static ProductInCart fromRequest(AddProductToCartICommand command, CartValidator validator) {
         return create(
             CartIdMother.createFromAddProductToCartCommand(command.getIdCart()), ProductInCartProductMother.create(command.getIdProduct()), validator
         );

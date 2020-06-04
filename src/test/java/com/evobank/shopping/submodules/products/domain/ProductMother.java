@@ -1,7 +1,7 @@
 package com.evobank.shopping.submodules.products.domain;
 
-import com.evobank.shopping.submodules.products.application.create.CreateProductCommand;
-import com.evobank.shopping.submodules.products.application.update.UpdateProductCommand;
+import com.evobank.shopping.submodules.products.application.create.CreateProductICommand;
+import com.evobank.shopping.submodules.products.application.update.UpdateProductICommand;
 import com.evobank.shopping.submodules.products.domain.service.ProductsValidator;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductIdMother;
@@ -21,21 +21,21 @@ public final class ProductMother {
         return Product.create(ProductIdMother.update(id), ProductNameMother.random(), searcher);
     }
 
-    public static Product fromRequest(CreateProductCommand command, ProductsValidator searcher) {
+    public static Product fromRequest(CreateProductICommand command, ProductsValidator searcher) {
         return create(
             ProductIdMother.create(command.getId()),
             ProductNameMother.create(command.getName()), searcher
         );
     }
 
-    public static Product fromRequest(UpdateProductCommand command, ProductsValidator searcher) {
+    public static Product fromRequest(UpdateProductICommand command, ProductsValidator searcher) {
         return update(
                 ProductIdMother.update(command.getId()),
                 ProductNameMother.update(command.getName()), searcher
         );
     }
 
-    public static Product fromRequestWithNameNull(UpdateProductCommand command, ProductsValidator searcher) {
+    public static Product fromRequestWithNameNull(UpdateProductICommand command, ProductsValidator searcher) {
         return update(
                 ProductIdMother.update(command.getId()),
                 ProductNameMother.update(null), searcher

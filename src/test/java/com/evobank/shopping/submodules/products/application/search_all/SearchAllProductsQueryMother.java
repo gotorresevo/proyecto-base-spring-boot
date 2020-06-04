@@ -1,11 +1,11 @@
 package com.evobank.shopping.submodules.products.application.search_all;
 
 public final class SearchAllProductsQueryMother {
-    public static SearchAllProductsQuery create() {
-        return new SearchAllProductsQuery();
+    public static SearchAllProductsIQuery create() {
+        return new SearchAllProductsIQuery();
     }
 
-    public static SearchAllProductsQuery random() {
+    public static SearchAllProductsIQuery random() {
         return create();
     }
 }

@@ -1,11 +1,11 @@
 package com.evobank.shopping.controllers.restful.products;
 
 import com.evobank.architecture.application.ApiController;
-import com.evobank.architecture.domain.bus.command.CommandBus;
-import com.evobank.architecture.domain.bus.query.QueryBus;
+import com.evobank.architecture.domain.bus.command.ICommandBus;
+import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.ProductsResponse;
-import com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsQuery;
+import com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsIQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +19,13 @@ import java.util.Collections;
 public final class ProductsGetController extends ApiController {
 
     @InjectDependency
-    public ProductsGetController(QueryBus queryBus, CommandBus commandBus) {
-        super(queryBus, commandBus);
+    public ProductsGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
+        super(IQueryBus, ICommandBus);
     }
 
     @GetMapping("/products")
     public ResponseEntity search() {
-        return new ResponseEntity(ask(new SearchAllProductsQuery())
+        return new ResponseEntity(ask(new SearchAllProductsIQuery())
                 .map(response -> ((ProductsResponse)response).getProducts())
                 .orElse(Collections.emptyList())
                 , HttpStatus.OK);

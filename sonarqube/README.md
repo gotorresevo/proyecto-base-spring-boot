@@ -222,8 +222,8 @@ Resultado
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ shopping ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 95 source files to C:\Users\gotorres_sel\Desktop\shoppingcart\target\classes
-[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/query/QueryHandlersInformation.java: Some input files use unchecked or unsafe operations.
-[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/query/QueryHandlersInformation.java: Recompile with -Xlint:unchecked for details.
+[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/IQuery/QueryHandlersInformation.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/IQuery/QueryHandlersInformation.java: Recompile with -Xlint:unchecked for details.
 [INFO]
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ shopping ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -629,16 +629,16 @@ Listener@5988407b, org.springframework.boot.test.autoconfigure.web.client.MockRe
 2020-06-03 11:33:26.604  INFO 14540 --- [           main] c.e.s.c.r.p.ProductsGetControllerTest    : Started ProductsGetControllerTest in 0.964 seconds (JVM running for 29.99)
 2020-06-03 11:33:26.623  INFO 14540 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.505 s - in com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest
-[INFO] Running com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommandHandlerTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommandHandlerTest
-[INFO] Running com.evobank.shopping.submodules.carts.application.create.CreateCartCommandHandlerTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.evobank.shopping.submodules.carts.application.create.CreateCartCommandHandlerTest
-[INFO] Running com.evobank.shopping.submodules.products.application.create.CreateProductCommandHandlerTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 s - in com.evobank.shopping.submodules.products.application.create.CreateProductCommandHandlerTest
-[INFO] Running com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsQueryHandlerTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsQueryHandlerTest
-[INFO] Running com.evobank.shopping.submodules.products.application.update.UpdateProductCommandHandlerTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.evobank.shopping.submodules.products.application.update.UpdateProductCommandHandlerTest
+[INFO] Running com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartIICommandHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartIICommandHandlerTest
+[INFO] Running com.evobank.shopping.submodules.carts.application.create.CreateCartIICommandHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.evobank.shopping.submodules.carts.application.create.CreateCartIICommandHandlerTest
+[INFO] Running com.evobank.shopping.submodules.products.application.create.CreateProductIICommandHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 s - in com.evobank.shopping.submodules.products.application.create.CreateProductIICommandHandlerTest
+[INFO] Running com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsIIQueryHandlerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsIIQueryHandlerTest
+[INFO] Running com.evobank.shopping.submodules.products.application.update.UpdateProductIICommandHandlerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.evobank.shopping.submodules.products.application.update.UpdateProductIICommandHandlerTest
 [INFO]
 [INFO] Results:
 [INFO]
@@ -663,8 +663,8 @@ Listener@5988407b, org.springframework.boot.test.autoconfigure.web.client.MockRe
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ shopping ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 95 source files to C:\Users\gotorres_sel\Desktop\shoppingcart\target\classes
-[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/query/QueryHandlersInformation.java: Some input files use unchecked or unsafe operations.
-[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/query/QueryHandlersInformation.java: Recompile with -Xlint:unchecked for details.
+[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/IQuery/QueryHandlersInformation.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/gotorres_sel/Desktop/shoppingcart/src/main/java/com/evobank/shopping/shared/infrastructure/bus/IQuery/QueryHandlersInformation.java: Recompile with -Xlint:unchecked for details.
 [INFO]
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ shopping ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.

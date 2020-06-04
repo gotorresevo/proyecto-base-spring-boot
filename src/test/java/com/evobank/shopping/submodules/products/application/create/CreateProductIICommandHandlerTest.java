@@ -15,19 +15,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
 
-class CreateProductCommandHandlerTest extends ProductsModuleUnitTestCase {
+class CreateProductIICommandHandlerTest extends ProductsModuleUnitTestCase {
 
-    private CreateProductCommandHandler handler;
+    private CreateProductICommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new CreateProductCommandHandler(new ProductCreator(repository, eventBus, factory));
+        handler = new CreateProductICommandHandler(new ProductCreator(repository, IEventBus, factory));
     }
 
     @Test
     void create_a_product_valid() {
-        CreateProductCommand command = CreateProductCommandMother.random();
+        CreateProductICommand command = CreateProductCommandMother.random();
 
         Product product = ProductMother.fromRequest(command, searcher);
         ProductCreatedDomainEvent domainEvent = ProductCreatedDomainEventMother.fromProduct(product);

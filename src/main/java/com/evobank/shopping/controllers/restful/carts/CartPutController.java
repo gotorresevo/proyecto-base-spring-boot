@@ -1,13 +1,13 @@
 package com.evobank.shopping.controllers.restful.carts;
 
 import com.evobank.architecture.application.ApiController;
-import com.evobank.architecture.domain.bus.command.CommandBus;
+import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
-import com.evobank.architecture.domain.bus.query.QueryBus;
+import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.IOError;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.carts.application.create.CreateCartCommand;
+import com.evobank.shopping.submodules.carts.application.create.CreateCartICommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,14 +23,14 @@ import java.util.stream.Collectors;
 public final class CartPutController extends ApiController {
 
     @InjectDependency
-    public CartPutController(QueryBus queryBus, CommandBus commandBus) {
-        super(queryBus, commandBus);
+    public CartPutController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
+        super(IQueryBus, ICommandBus);
     }
 
     @PutMapping("/cart/{idCart}")
     public ResponseEntity create(@PathVariable String idCart) {
         try {
-            dispatch(new CreateCartCommand(idCart));
+            dispatch(new CreateCartICommand(idCart));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()

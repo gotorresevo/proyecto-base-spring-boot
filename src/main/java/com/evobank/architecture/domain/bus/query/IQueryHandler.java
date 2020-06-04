@@ -4,6 +4,6 @@ import com.evobank.architecture.domain.bus.Response;
 
 import java.util.Optional;
 
-public interface QueryBus {
-    <R extends Response> Optional<R> ask(Query query);
+public interface IQueryHandler<Q extends IQuery, R extends Response> {
+    Optional<R> handle(Q query);
 }

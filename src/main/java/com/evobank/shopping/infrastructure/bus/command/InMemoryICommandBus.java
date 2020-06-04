@@ -7,23 +7,23 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public final class InMemoryCommandBus implements CommandBus {
+public final class InMemoryICommandBus implements ICommandBus {
     private final CommandHandlersInformation information;
     private final ApplicationContext context;
 
-    public InMemoryCommandBus(CommandHandlersInformation information, ApplicationContext context) {
+    public InMemoryICommandBus(CommandHandlersInformation information, ApplicationContext context) {
         this.information = information;
         this.context     = context;
     }
 
     @Override
-    public Optional dispatch(Command command) {
+    public Optional dispatch(ICommand ICommand) {
         try {
-            Class<? extends CommandResultHandler> commandHandlerClass = information.search(command.getClass());
+            Class<? extends ICommandResultHandler> commandHandlerClass = information.search(ICommand.getClass());
 
-            CommandResultHandler handler = context.getBean(commandHandlerClass);
+            ICommandResultHandler handler = context.getBean(commandHandlerClass);
 
-            return handler.handle(command);
+            return handler.handle(ICommand);
         } catch (Exception error) {
             throw new CommandHandlerExecutionError(error);
         }

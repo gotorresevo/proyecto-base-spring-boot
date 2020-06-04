@@ -4,15 +4,15 @@ import com.evobank.shopping.submodules.carts.domain.vo.CartIdMother;
 import com.evobank.shopping.submodules.carts.domain.vo.ProductInCartProductMother;
 
 public final class AddProductToCartCommandMother {
-    public static AddProductToCartCommand create(String idCart, String idProduct) {
-        return new AddProductToCartCommand(idCart, idProduct);
+    public static AddProductToCartICommand create(String idCart, String idProduct) {
+        return new AddProductToCartICommand(idCart, idProduct);
     }
 
-    public static AddProductToCartCommand random() {
+    public static AddProductToCartICommand random() {
         return create(CartIdMother.randomCreateFromAddProductToCartCommand().getValue(), ProductInCartProductMother.random().getValue());
     }
 
-    public static AddProductToCartCommand createIdCart(String value) {
+    public static AddProductToCartICommand createIdCart(String value) {
         return create(value, ProductInCartProductMother.random().getValue());
     }
 }

@@ -1,7 +1,7 @@
 package com.evobank.architecture.domain.bus.query;
 
 public final class QueryNotRegisteredError extends Exception {
-    public QueryNotRegisteredError(Class<? extends Query> query) {
+    public QueryNotRegisteredError(Class<? extends IQuery> query) {
         super(String.format("The query <%s> hasn't a query handler associated", query.toString()));
     }
 }

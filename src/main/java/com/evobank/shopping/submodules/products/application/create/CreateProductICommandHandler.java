@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.products.application.create;
 
-import com.evobank.architecture.domain.bus.command.CommandResultHandler;
+import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.IdResponse;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
@@ -12,12 +12,12 @@ import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
-public final class CreateProductCommandHandler implements CommandResultHandler<CreateProductCommand, IdResponse> {
+public final class CreateProductICommandHandler implements ICommandResultHandler<CreateProductICommand, IdResponse> {
 
     private final ProductCreator creator;
 
     @Override
-    public Optional<IdResponse> handle(CreateProductCommand command) {
+    public Optional<IdResponse> handle(CreateProductICommand command) {
         return creator.create(ProductId.createFromCommand(command.getId()), ProductName.createFromCommand(command.getName()))
                 .map(product -> new IdResponse(product.getId().getValue()));
     }

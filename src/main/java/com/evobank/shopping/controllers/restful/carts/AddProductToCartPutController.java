@@ -1,12 +1,12 @@
 package com.evobank.shopping.controllers.restful.carts;
 
 import com.evobank.architecture.application.ApiController;
-import com.evobank.architecture.domain.bus.command.CommandBus;
+import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
-import com.evobank.architecture.domain.bus.query.QueryBus;
+import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommand;
+import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartICommand;
 import com.evobank.shopping.submodules.carts.domain.exceptions.CartNotFoundException;
 import com.evobank.shopping.submodules.shared.products.domain.exceptions.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 public final class AddProductToCartPutController extends ApiController {
 
     @InjectDependency
-    public AddProductToCartPutController(QueryBus queryBus, CommandBus commandBus) {
-        super(queryBus, commandBus);
+    public AddProductToCartPutController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
+        super(IQueryBus, ICommandBus);
     }
 
     @PutMapping("/cart/{idCart}/product/{idProduct}")
     public ResponseEntity add(@PathVariable String idCart, @PathVariable String idProduct) {
         try {
-            dispatch(new AddProductToCartCommand(idCart, idProduct));
+            dispatch(new AddProductToCartICommand(idCart, idProduct));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             return domainException.getExceptions().stream()

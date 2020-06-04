@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.carts.usecases;
 
-import com.evobank.architecture.domain.bus.event.EventBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.architecture.usecases.CaseOfUse;
 import com.evobank.shopping.submodules.carts.domain.ICartsRepository;
@@ -16,13 +16,13 @@ import java.util.Optional;
 @CaseOfUse
 public final class ProductAggregatorToCart {
     private final ICartsRepository cartsRepository;
-    private final EventBus eventBus;
+    private final IEventBus IEventBus;
     private final CartFactory factory;
 
     public Optional<ProductInCart> add(CartId id, ProductInCartProduct product) {
         ProductInCart productInCart = factory.create(id, product);
         cartsRepository.addProductToCart(productInCart);
-        eventBus.publish(productInCart.pullDomainEvents());
+        IEventBus.publish(productInCart.pullDomainEvents());
         return Optional.ofNullable(productInCart);
     }
 }

@@ -1,17 +1,17 @@
 package com.evobank.shopping.infrastructure.bus.event;
 
 import com.evobank.architecture.domain.bus.event.DomainEvent;
-import com.evobank.architecture.domain.bus.event.EventBus;
+import com.evobank.architecture.domain.bus.event.IEventBus;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SpringApplicationEventBus implements EventBus {
+public class SpringApplicationIEventBus implements IEventBus {
     private final ApplicationEventPublisher publisher;
 
-    public SpringApplicationEventBus(ApplicationEventPublisher publisher) {
+    public SpringApplicationIEventBus(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
