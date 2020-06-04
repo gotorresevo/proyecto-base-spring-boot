@@ -15,7 +15,7 @@ final class CartPutControllerTest extends ApplicationTestCase {
     }
 
     @Test
-    void create_a_cart_with_characters_no_valids() throws Exception {
+    void create_a_cart_with_id_no_valids() throws Exception {
         assertRequest("PUT",
                 "/cart/",
                 404);

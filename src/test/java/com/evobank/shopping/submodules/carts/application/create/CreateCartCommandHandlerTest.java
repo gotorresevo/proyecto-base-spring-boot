@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.function.Consumer;
 
-class CreateCartIICommandHandlerTest extends CartsModuleUnitTestCase {
+class CreateCartCommandHandlerTest extends CartsModuleUnitTestCase {
 
     private CreateCartCommandHandler handler;
 
@@ -25,7 +25,7 @@ class CreateCartIICommandHandlerTest extends CartsModuleUnitTestCase {
     }
 
     @Test
-    void create_a_product_valid() {
+    void create_a_cart_valid() {
         CreateCartCommand command = CreateCartCommandMother.random();
 
         Cart product = CartMother.fromRequest(command, searcher);

@@ -631,8 +631,8 @@ Listener@5988407b, org.springframework.boot.test.autoconfigure.web.client.MockRe
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.505 s - in com.evobank.shopping.controllers.restful.products.ProductsGetControllerTest
 [INFO] Running com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartIICommandHandlerTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartIICommandHandlerTest
-[INFO] Running com.evobank.shopping.submodules.carts.application.create.CreateCartIICommandHandlerTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.evobank.shopping.submodules.carts.application.create.CreateCartIICommandHandlerTest
+[INFO] Running com.evobank.shopping.submodules.carts.application.create.CreateCartCommandHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.evobank.shopping.submodules.carts.application.create.CreateCartCommandHandlerTest
 [INFO] Running com.evobank.shopping.submodules.products.application.create.CreateProductIICommandHandlerTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 s - in com.evobank.shopping.submodules.products.application.create.CreateProductIICommandHandlerTest
 [INFO] Running com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsIIQueryHandlerTest
