@@ -6,6 +6,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class CreateCartICommand implements ICommand {
+public final class CreateCartCommand implements ICommand {
     private String id;
 }

@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class AddProductToCartICommand implements ICommand {
+public final class AddProductToCartCommand implements ICommand {
     private String idCart;
     private String idProduct;
 }

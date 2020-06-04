@@ -12,12 +12,12 @@ import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
-public final class AddProductToCartICommandHandler implements ICommandResultHandler<AddProductToCartICommand, IdResponse> {
+public final class AddProductToCartCommandHandler implements ICommandResultHandler<AddProductToCartCommand, IdResponse> {
 
     private final ProductAggregatorToCart aggregator;
 
     @Override
-    public Optional<IdResponse> handle(AddProductToCartICommand command) {
+    public Optional<IdResponse> handle(AddProductToCartCommand command) {
         return aggregator.add(CartId.createFromAddProductToCartCommand(command.getIdCart()), ProductInCartProduct.createFromCommand(command.getIdProduct()))
                 .map(productInCart -> new IdResponse(productInCart.getIdCart().getValue()));
     }
