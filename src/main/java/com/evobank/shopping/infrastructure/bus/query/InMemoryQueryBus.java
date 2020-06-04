@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public final class InMemoryIQueryBus implements IQueryBus {
+public final class InMemoryQueryBus implements IQueryBus {
     private final QueryHandlersInformation information;
     private final ApplicationContext context;
 
-    public InMemoryIQueryBus(QueryHandlersInformation information, ApplicationContext context) {
+    public InMemoryQueryBus(QueryHandlersInformation information, ApplicationContext context) {
         this.information = information;
         this.context     = context;
     }

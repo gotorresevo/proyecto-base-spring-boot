@@ -7,3 +7,9 @@
 
 ### Diagrama de secuencia: Crear Carrito
 ![Diagrama de secuencia CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/SequenceArchitectureCreateCart.png "Flujo completo desde el llamado al command hasta la publicacion del evento")
+
+Los objetos resaltados en AMARILLO estan definidos en el diagrama como interfaces JAVA, ya que mediante la capacidad de SPRING de "Inversion de Dependencias" se inyectan sus implementaciones. Para el caso de "ICartsRepository" Dicha implementación esta ubicada en el paquete "infrastructure".  
+
+Para "ICommandBus" su implementación "com.evobank.shopping.infrastructure.bus.command.InMemoryCommandBus"  
+Para "IQueryBus" su implementación "com.evobank.shopping.infrastructure.bus.query.InMemoryQueryBus"  
+Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationIEventBus"  

@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public final class InMemoryICommandBus implements ICommandBus {
+public final class InMemoryCommandBus implements ICommandBus {
     private final CommandHandlersInformation information;
     private final ApplicationContext context;
 
-    public InMemoryICommandBus(CommandHandlersInformation information, ApplicationContext context) {
+    public InMemoryCommandBus(CommandHandlersInformation information, ApplicationContext context) {
         this.information = information;
         this.context     = context;
     }
