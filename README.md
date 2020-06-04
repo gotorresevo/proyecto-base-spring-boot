@@ -9,6 +9,7 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 ### Diagrama de casos de uso del ejemplo base
 ![Diagrama de casos de uso del ejemplo base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/UsesCases.png "Diagrama de caso de uso del ejemplo base")
 
-
-### Verificacion del Codigo Estatico con Sonar
-[Click Aqui para ir a la Configuracion de Sonar en local](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/sonarqube)
+### Enlaces de interes
+[Ver como se implemento el modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping)
+[Ver como se implemento el submodulo CARTS del modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping/submodules/carts)
+[Configuracion de Sonar en local](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/sonarqube)
