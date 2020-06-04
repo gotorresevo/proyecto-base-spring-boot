@@ -12,6 +12,6 @@ El modulo puede dividirse en varios submodulos si asi se ve pertinente. Si fuera
 ![Diagrama de secuencia completo de CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/SequenceArchitectureFullFlowCreateCarts.png "Flujo completo desde el llamado al controlador hasta el dominio")
 
 ### Enlaces de interes
-[Ver como se implemento el modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping)
-[Ver como se implemento el submodulo CARTS del modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping/submodules/carts)
-[Configuracion de Sonar en local](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/sonarqube)
+[Ver como se implemento el modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping)  
+[Ver como se implemento el submodulo CARTS del modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/src/main/java/com/evobank/shopping/submodules/carts)  
+[Configuracion de Sonar en local](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/master/sonarqube)  
