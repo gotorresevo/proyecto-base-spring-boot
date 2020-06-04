@@ -12,10 +12,10 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 ## Cobertura de las pruebas unitarias del componente
 ![Cobertura de las pruebas](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/ComponentTest.png "Cobertura de las pruebas")
 
-## Cobertura de casos de usos
+## Cobertura del caso de uso
 Cubre las capas de:  application, usecases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el caso de uso cumple con los requisitos del negocio.
 
-## Cobertura de Controladores
+## Cobertura del Controlador
 Cubre las capas de:  controllers, application, usecases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el controlador reciba y retorne lo especificado en el Open Api Specification (Swagger).  
 
 ### Enlaces de interes
