@@ -5,7 +5,7 @@ import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.ProductsResponse;
-import com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsIQuery;
+import com.evobank.shopping.submodules.products.application.search_all.SearchAllProductsQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public final class ProductsGetController extends ApiController {
 
     @GetMapping("/products")
     public ResponseEntity search() {
-        return new ResponseEntity(ask(new SearchAllProductsIQuery())
+        return new ResponseEntity(ask(new SearchAllProductsQuery())
                 .map(response -> ((ProductsResponse)response).getProducts())
                 .orElse(Collections.emptyList())
                 , HttpStatus.OK);

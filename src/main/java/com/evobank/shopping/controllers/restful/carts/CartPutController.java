@@ -7,7 +7,7 @@ import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.IOError;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.carts.application.create.CreateCartICommand;
+import com.evobank.shopping.submodules.carts.application.create.CreateCartCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +30,7 @@ public final class CartPutController extends ApiController {
     @PutMapping("/cart/{idCart}")
     public ResponseEntity create(@PathVariable String idCart) {
         try {
-            dispatch(new CreateCartICommand(idCart));
+            dispatch(new CreateCartCommand(idCart));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()

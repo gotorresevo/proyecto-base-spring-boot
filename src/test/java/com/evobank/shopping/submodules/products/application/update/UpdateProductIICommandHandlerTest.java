@@ -10,16 +10,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UpdateProductIICommandHandlerTest extends ProductsModuleUnitTestCase {
-    private UpdateProductICommandHandler handler;
+    private UpdateProductCommandHandler handler;
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new UpdateProductICommandHandler(new ProductUpdater(repository, IEventBus, factory));
+        handler = new UpdateProductCommandHandler(new ProductUpdater(repository, IEventBus, factory));
     }
 
     @Test
     void update_a_product_valid() {
-        UpdateProductICommand command = UpdateProductCommandMother.random();
+        UpdateProductCommand command = UpdateProductCommandMother.random();
 
         Product product = ProductMother.fromRequest(command, searcher);
         Product productCurrent = ProductMother.updateId(product.getId().getValue(), searcher);

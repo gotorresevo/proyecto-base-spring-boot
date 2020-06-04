@@ -17,17 +17,17 @@ import java.util.function.Consumer;
 
 public class AddProductToCartIICommandHandlerTest extends CartsModuleUnitTestCase {
 
-    private AddProductToCartICommandHandler handler;
+    private AddProductToCartCommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new AddProductToCartICommandHandler(new ProductAggregatorToCart(repository, IEventBus, factory));
+        handler = new AddProductToCartCommandHandler(new ProductAggregatorToCart(repository, IEventBus, factory));
     }
 
     @Test
     void add_a_product_valid() {
-        AddProductToCartICommand command = AddProductToCartCommandMother.random();
+        AddProductToCartCommand command = AddProductToCartCommandMother.random();
         super.whenValidIfTheProductExistReturnTrue(command.getIdProduct());
         super.whenValidIfTheCartExistReturnTrue(command.getIdCart());
         ProductInCart productInCart = ProductInCartMother.fromRequest(command, searcher);

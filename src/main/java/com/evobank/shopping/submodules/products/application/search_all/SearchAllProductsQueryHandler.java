@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 
 @QueryHandler
 @AllArgsConstructor(onConstructor_= @InjectDependency)
-public final class SearchAllProductsIQueryHandler implements IQueryHandler<SearchAllProductsIQuery, ProductsResponse> {
+public final class SearchAllProductsQueryHandler implements IQueryHandler<SearchAllProductsQuery, ProductsResponse> {
     private final ProductsSearcher searcher;
     @Override
-    public Optional<ProductsResponse> handle(SearchAllProductsIQuery query) {
+    public Optional<ProductsResponse> handle(SearchAllProductsQuery query) {
         return Optional.of(new ProductsResponse(searcher.search()
                 .map(product -> new ProductResponse(product.getId().getValue(), product.getName().getValue()))
                 .collect(Collectors.toList())));

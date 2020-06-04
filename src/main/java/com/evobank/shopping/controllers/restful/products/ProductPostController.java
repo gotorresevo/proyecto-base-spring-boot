@@ -8,7 +8,7 @@ import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.IOError;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.IdResponse;
-import com.evobank.shopping.submodules.products.application.create.CreateProductICommand;
+import com.evobank.shopping.submodules.products.application.create.CreateProductCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public final class ProductPostController extends ApiController {
     @PostMapping("/products")
     public ResponseEntity create(@RequestBody Request request) {
         try {
-            return dispatch(new CreateProductICommand(null, request.getName())).map(response -> {
+            return dispatch(new CreateProductCommand(null, request.getName())).map(response -> {
                 IdResponse idProduct = (IdResponse) response;
                 return new ResponseEntity(idProduct, HttpStatus.CREATED);
             }).orElseThrow(() -> new CommandHandlerExecutionError(new DomainException("No se obtuvo el id")));

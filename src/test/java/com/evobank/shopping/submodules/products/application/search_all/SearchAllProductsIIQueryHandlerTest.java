@@ -7,17 +7,17 @@ import org.junit.jupiter.api.Test;
 
 class SearchAllProductsIIQueryHandlerTest extends ProductsModuleUnitTestCase {
 
-    private SearchAllProductsIQueryHandler handler;
+    private SearchAllProductsQueryHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new SearchAllProductsIQueryHandler(new ProductsSearcher(repository));
+        handler = new SearchAllProductsQueryHandler(new ProductsSearcher(repository));
     }
 
     @Test
     void find_all_products() {
-        SearchAllProductsIQuery query = SearchAllProductsQueryMother.random();
+        SearchAllProductsQuery query = SearchAllProductsQueryMother.random();
         handler.handle(query);
         shouldHaveSearched();
     }

@@ -16,17 +16,17 @@ import java.util.function.Consumer;
 
 class CreateCartIICommandHandlerTest extends CartsModuleUnitTestCase {
 
-    private CreateCartICommandHandler handler;
+    private CreateCartCommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new CreateCartICommandHandler(new CartCreator(repository, IEventBus, factory));
+        handler = new CreateCartCommandHandler(new CartCreator(repository, IEventBus, factory));
     }
 
     @Test
     void create_a_product_valid() {
-        CreateCartICommand command = CreateCartCommandMother.random();
+        CreateCartCommand command = CreateCartCommandMother.random();
 
         Cart product = CartMother.fromRequest(command, searcher);
         CartCreatedDomainEvent domainEvent = CartCreatedDomainEventMother.fromCart(product);

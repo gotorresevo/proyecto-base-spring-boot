@@ -12,12 +12,12 @@ import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
-public final class CreateProductICommandHandler implements ICommandResultHandler<CreateProductICommand, IdResponse> {
+public final class CreateProductCommandHandler implements ICommandResultHandler<CreateProductCommand, IdResponse> {
 
     private final ProductCreator creator;
 
     @Override
-    public Optional<IdResponse> handle(CreateProductICommand command) {
+    public Optional<IdResponse> handle(CreateProductCommand command) {
         return creator.create(ProductId.createFromCommand(command.getId()), ProductName.createFromCommand(command.getName()))
                 .map(product -> new IdResponse(product.getId().getValue()));
     }

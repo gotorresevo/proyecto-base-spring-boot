@@ -17,17 +17,17 @@ import java.util.function.Consumer;
 
 class CreateProductIICommandHandlerTest extends ProductsModuleUnitTestCase {
 
-    private CreateProductICommandHandler handler;
+    private CreateProductCommandHandler handler;
 
     @BeforeEach
     protected void setUp() {
         super.setUp();
-        handler = new CreateProductICommandHandler(new ProductCreator(repository, IEventBus, factory));
+        handler = new CreateProductCommandHandler(new ProductCreator(repository, IEventBus, factory));
     }
 
     @Test
     void create_a_product_valid() {
-        CreateProductICommand command = CreateProductCommandMother.random();
+        CreateProductCommand command = CreateProductCommandMother.random();
 
         Product product = ProductMother.fromRequest(command, searcher);
         ProductCreatedDomainEvent domainEvent = ProductCreatedDomainEventMother.fromProduct(product);

@@ -6,7 +6,7 @@ import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.domain.exceptions.DomainException;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartICommand;
+import com.evobank.shopping.submodules.carts.application.addproduct.AddProductToCartCommand;
 import com.evobank.shopping.submodules.carts.domain.exceptions.CartNotFoundException;
 import com.evobank.shopping.submodules.shared.products.domain.exceptions.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public final class AddProductToCartPutController extends ApiController {
     @PutMapping("/cart/{idCart}/product/{idProduct}")
     public ResponseEntity add(@PathVariable String idCart, @PathVariable String idProduct) {
         try {
-            dispatch(new AddProductToCartICommand(idCart, idProduct));
+            dispatch(new AddProductToCartCommand(idCart, idProduct));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             return domainException.getExceptions().stream()

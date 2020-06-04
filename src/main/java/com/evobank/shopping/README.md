@@ -7,3 +7,6 @@ El modulo puede dividirse en varios submodulos si asi se ve pertinente. Si fuera
 
 ### Diagrama de paquetes del modulo
 ![Diagrama de paquetes del modulo](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/ModuloShopping.png "Description del modulo describiendo los submodulos")
+
+### Diagrama de secuencia Completo del caso de uso: Crear Carrito
+![Diagrama de secuencia completo de CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/SequenceArchitectureFullFlowCreateCarts.png "Flujo completo desde el llamado al controlador hasta el dominio")

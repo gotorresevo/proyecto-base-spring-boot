@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class CreateProductICommand implements ICommand {
+public final class CreateProductCommand implements ICommand {
     private String id;
     private String name;
 }
