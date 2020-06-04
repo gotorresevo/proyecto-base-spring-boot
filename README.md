@@ -3,10 +3,10 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 
 ![Arquitectura base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/ArquitecturaProyectoBase.png "Arquitectura base de una aplicacion orientada al dominio de evobanco")
 
-#### Diagrama de secuencia de la arquitectura
+### Diagrama de secuencia de la arquitectura
 ![Diagrama de secuencia de la Arquitectura base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/SequenceArquitecturaBase.png "Diagrama de secuencia de la arquitectura")
 
-#### Diagrama de casos de uso del ejemplo base
+### Diagrama de casos de uso del ejemplo base
 ![Diagrama de casos de uso del ejemplo base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/master/assets/UsesCases.png "Diagrama de caso de uso del ejemplo base")
 
 
