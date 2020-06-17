@@ -3,4 +3,3 @@ camunda.bpm:
     id: admin
     password: admin
     firstName: Administrator
-
