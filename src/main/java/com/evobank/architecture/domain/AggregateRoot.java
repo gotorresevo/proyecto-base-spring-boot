@@ -28,7 +28,7 @@ public abstract class AggregateRoot {
         DomainException domainException = new DomainException();
         this.valueObjects.stream().parallel().forEach(aValueObject -> {
             try {
-                aValueObject.valid(searcher);
+                aValueObject.valid(searcher, valueObjects);
             } catch (RuntimeException e) {
                 domainException.add(e);
             }

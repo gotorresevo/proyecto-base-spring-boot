@@ -9,4 +9,5 @@ import lombok.Getter;
 public final class AddProductToCartCommand implements ICommand {
     private String idCart;
     private String idProduct;
+    private Integer quantity;
 }

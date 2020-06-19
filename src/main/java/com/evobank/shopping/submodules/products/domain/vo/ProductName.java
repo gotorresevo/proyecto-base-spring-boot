@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -52,7 +53,7 @@ public final class ProductName implements IValueObject {
 
 
     @Override
-    public void valid(IValidator searcher) {
+    public void valid(IValidator searcher, List<IValueObject> valueObjects) {
         ProductsValidator fundsSearcher = (ProductsValidator) searcher;
         ensureNull(getValue());
         ensureEmpty(getValue());

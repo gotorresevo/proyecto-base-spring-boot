@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -23,7 +24,7 @@ public final class ProductInCartProduct implements IValueObject {
     }
 
     @Override
-    public void valid(IValidator finder) {
+    public void valid(IValidator finder, List<IValueObject> valueObjects) {
         CartValidator productsValidator = (CartValidator) finder;
         ensureIdCorrect(getValue());
         ensureThatTheProductExist(productsValidator);

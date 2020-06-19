@@ -4,6 +4,7 @@ import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.carts.domain.vo.CartId;
 import com.evobank.shopping.submodules.carts.domain.vo.ProductInCartProduct;
+import com.evobank.shopping.submodules.carts.domain.vo.ProductInCartQuantity;
 import com.evobank.shopping.submodules.carts.usecases.ProductAggregatorToCart;
 import com.evobank.shopping.submodules.products.application.IdResponse;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,9 @@ public final class AddProductToCartCommandHandler implements ICommandResultHandl
 
     @Override
     public Optional<IdResponse> handle(AddProductToCartCommand command) {
-        return aggregator.add(CartId.createFromAddProductToCartCommand(command.getIdCart()), ProductInCartProduct.createFromCommand(command.getIdProduct()))
+        return aggregator.add(CartId.createFromAddProductToCartCommand(command.getIdCart()),
+                ProductInCartProduct.createFromCommand(command.getIdProduct()),
+                ProductInCartQuantity.createFromCommand(command.getQuantity()))
                 .map(productInCart -> new IdResponse(productInCart.getIdCart().getValue()));
     }
 }

@@ -8,6 +8,7 @@ import com.evobank.shopping.submodules.carts.domain.ProductInCart;
 import com.evobank.shopping.submodules.carts.domain.factories.CartFactory;
 import com.evobank.shopping.submodules.carts.domain.vo.CartId;
 import com.evobank.shopping.submodules.carts.domain.vo.ProductInCartProduct;
+import com.evobank.shopping.submodules.carts.domain.vo.ProductInCartQuantity;
 import lombok.AllArgsConstructor;
 
 import java.util.Optional;
@@ -19,8 +20,8 @@ public final class ProductAggregatorToCart {
     private final IEventBus IEventBus;
     private final CartFactory factory;
 
-    public Optional<ProductInCart> add(CartId id, ProductInCartProduct product) {
-        ProductInCart productInCart = factory.create(id, product);
+    public Optional<ProductInCart> add(CartId id, ProductInCartProduct product, ProductInCartQuantity quantity) {
+        ProductInCart productInCart = factory.create(id, product, quantity);
         cartsRepository.addProductToCart(productInCart);
         IEventBus.publish(productInCart.pullDomainEvents());
         return Optional.ofNullable(productInCart);

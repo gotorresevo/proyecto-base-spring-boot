@@ -25,10 +25,10 @@ public final class AddProductToCartPutController extends ApiController {
         super(IQueryBus, ICommandBus);
     }
 
-    @PutMapping("/cart/{idCart}/product/{idProduct}")
-    public ResponseEntity add(@PathVariable String idCart, @PathVariable String idProduct) {
+    @PutMapping("/cart/{idCart}/product/{idProduct}/{quantity}")
+    public ResponseEntity add(@PathVariable String idCart, @PathVariable String idProduct, @PathVariable Integer quantity) {
         try {
-            dispatch(new AddProductToCartCommand(idCart, idProduct));
+            dispatch(new AddProductToCartCommand(idCart, idProduct, quantity));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             return domainException.getExceptions().stream()

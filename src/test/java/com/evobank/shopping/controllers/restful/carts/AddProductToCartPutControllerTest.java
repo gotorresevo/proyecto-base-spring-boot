@@ -15,7 +15,7 @@ final class AddProductToCartPutControllerTest extends ApplicationTestCase {
                         "}");
         givenThereIsACart("99ad55f5-6eab-4d73-b383-c63268e251e8");
         assertRequest("PUT",
-                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7",
+                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7/10",
                 201);
     }
 
@@ -34,7 +34,7 @@ final class AddProductToCartPutControllerTest extends ApplicationTestCase {
     void add_a_product_to_cart_with_id_product_no_exist() throws Exception {
         givenThereIsACart("99ad55f5-6eab-4d73-b383-c63268e251e8");
         assertRequest("PUT",
-                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7",
+                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7/10",
                 404);
     }
 

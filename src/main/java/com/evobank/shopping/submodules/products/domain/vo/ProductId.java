@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -27,7 +28,7 @@ public final class ProductId implements IValueObject {
     }
 
     @Override
-    public void valid(IValidator validator) {
+    public void valid(IValidator validator, List<IValueObject> valueObjects) {
         ensureSetValueIfIsNull(getValue());
         ensureIdCorrect(getValue());
     }
