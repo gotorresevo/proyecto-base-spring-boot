@@ -16,7 +16,7 @@ final class ProductsGetControllerTest extends ApplicationTestCase {
 
         givenThereIsAProduct("99ad55f5-6eab-4d73-b383-c63268e251e8",
                 "{\n" +
-                "\"name\": \"The best product\"\n" +
+                "\"name\": \"The best product\", \"stock\":10" +
                 "}");
         assertResponse("/products", 200, body);
     }

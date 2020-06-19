@@ -31,7 +31,7 @@ public final class ProductPutController extends ApiController {
     @PutMapping("/products/{idProduct}")
     public ResponseEntity create(@PathVariable String idProduct, @RequestBody Request request) {
         try {
-            dispatch(new CreateProductCommand(idProduct, request.getName()));
+            dispatch(new CreateProductCommand(idProduct, request.getName(), request.getStock()));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             DomainException domainException = (DomainException) commandHandlerExecutionError.getCause();
             List<IOError> list = domainException.getExceptions().stream()

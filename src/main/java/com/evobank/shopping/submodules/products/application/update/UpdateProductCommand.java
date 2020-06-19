@@ -9,4 +9,5 @@ import lombok.Getter;
 public final class UpdateProductCommand implements ICommand {
     private String id;
     private String name;
+    private Integer stock;
 }

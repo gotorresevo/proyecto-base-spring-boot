@@ -10,4 +10,5 @@ import lombok.ToString;
 @ToString
 final class Request {
     private String name;
+    private Integer stock;
 }

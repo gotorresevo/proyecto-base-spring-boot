@@ -5,6 +5,7 @@ import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.IdResponse;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductName;
+import com.evobank.shopping.submodules.products.domain.vo.ProductStock;
 import com.evobank.shopping.submodules.products.usecases.ProductUpdater;
 import lombok.AllArgsConstructor;
 
@@ -18,7 +19,9 @@ public final class UpdateProductCommandHandler implements ICommandResultHandler<
 
     @Override
     public Optional<IdResponse> handle(UpdateProductCommand command) {
-        return updater.update(ProductId.updateFromCommand(command.getId()), ProductName.updateFromCommand(command.getName()))
+        return updater.update(ProductId.updateFromCommand(command.getId()),
+                ProductName.updateFromCommand(command.getName()),
+                ProductStock.updateFromCommand(command.getStock()))
                 .map(product -> new IdResponse(product.getId().getValue()));
     }
 }

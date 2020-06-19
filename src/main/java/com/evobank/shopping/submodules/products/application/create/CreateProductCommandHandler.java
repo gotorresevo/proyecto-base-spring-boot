@@ -5,6 +5,7 @@ import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.application.IdResponse;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductName;
+import com.evobank.shopping.submodules.products.domain.vo.ProductStock;
 import com.evobank.shopping.submodules.products.usecases.ProductCreator;
 import lombok.AllArgsConstructor;
 
@@ -18,7 +19,8 @@ public final class CreateProductCommandHandler implements ICommandResultHandler<
 
     @Override
     public Optional<IdResponse> handle(CreateProductCommand command) {
-        return creator.create(ProductId.createFromCommand(command.getId()), ProductName.createFromCommand(command.getName()))
+        return creator.create(ProductId.createFromCommand(command.getId()), ProductName.createFromCommand(command.getName()),
+                ProductStock.createFromCommand(command.getStock()))
                 .map(product -> new IdResponse(product.getId().getValue()));
     }
 }

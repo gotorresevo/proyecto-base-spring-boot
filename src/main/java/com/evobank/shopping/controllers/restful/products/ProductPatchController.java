@@ -29,7 +29,7 @@ public final class ProductPatchController extends ApiController {
     @PatchMapping("/products/{idProduct}")
     public ResponseEntity create(@PathVariable String idProduct, @RequestBody Request request) {
         try {
-            dispatch(new UpdateProductCommand(idProduct, request.getName()));
+            dispatch(new UpdateProductCommand(idProduct, request.getName(), request.getStock()));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             if(commandHandlerExecutionError.getCause() instanceof ProductNotFoundException){
                 return new ResponseEntity(HttpStatus.NOT_FOUND);

@@ -11,7 +11,7 @@ final class ProductPutControllerTest extends ApplicationTestCase {
     void create_a_product() throws Exception {
         assertRequestWithBody("PUT",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e8",
-                "{\"name\":\"IPhone 11 Pro\"}",
+                "{\"name\":\"IPhone 11 Pro\", \"stock\":10}",
                 201);
     }
 
@@ -19,11 +19,11 @@ final class ProductPutControllerTest extends ApplicationTestCase {
     void create_two_product_with_the_same_name() throws Exception {
         assertRequestWithBody("PUT",
                 "/products/98ad55f5-6eab-4d73-b383-c63268e251e8",
-                "{\"name\":\"SameName\"}",
+                "{\"name\":\"SameName\", \"stock\":10}",
                 201);
         assertRequestWithBody("PUT",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e7",
-                "{\"name\":\"SameName\"}",
+                "{\"name\":\"SameName\", \"stock\":10}",
                 400);
     }
 
@@ -31,11 +31,11 @@ final class ProductPutControllerTest extends ApplicationTestCase {
     void create_a_product_with_characters_no_valids() throws Exception {
         assertRequestWithBody("PUT",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e1",
-                "{\"name\":\"\"}",
+                "{\"name\":\"\", \"stock\":10}",
                 400);
         assertRequestWithBody("PUT",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e2",
-                "{\"name\":12}",
+                "{\"name\":12, \"stock\":10}",
                 400);
         assertRequestWithBody("PUT",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e4",

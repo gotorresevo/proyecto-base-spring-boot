@@ -3,3 +3,4 @@ camunda.bpm:
     id: admin
     password: admin
     firstName: Administrator
+spring.h2.console.enabled: true

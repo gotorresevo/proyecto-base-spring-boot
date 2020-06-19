@@ -11,7 +11,7 @@ final class ProductPostControllerTest extends ApplicationTestCase {
     void create_a_product() throws Exception {
         assertRequestWithBody("POST",
                 "/products",
-                "{\"name\":\"IPhone 11 Pro\"}",
+                "{\"name\":\"IPhone 11 Pro\", \"stock\":10}",
                 201);
     }
 
@@ -19,7 +19,7 @@ final class ProductPostControllerTest extends ApplicationTestCase {
     void create_a_product_with_name_incorrect() throws Exception {
         assertRequestWithBody("POST",
                 "/products",
-                "{\"name\":\"25\"}",
+                "{\"name\":\"25\", \"stock\":10}",
                 400);
     }
 

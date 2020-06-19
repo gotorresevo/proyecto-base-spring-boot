@@ -15,11 +15,11 @@ final class ProductPatchControllerTest extends ApplicationTestCase {
                 "}]";
         givenThereIsAProduct("99ad55f5-6eab-4d73-b383-c63268e251e8",
                 "{\n" +
-                        "\"name\": \"IPhone X\"\n" +
+                        "\"name\": \"IPhone X\", \"stock\":10" +
                         "}");
         assertRequestWithBody("PATCH",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e8",
-                "{\"name\":\"IPhone 11 Pro\"}",
+                "{\"name\":\"IPhone 11 Pro\", \"stock\":10}",
                 201);
         assertResponse("/products", 200, body);
     }
@@ -28,11 +28,11 @@ final class ProductPatchControllerTest extends ApplicationTestCase {
     void update_a_product_with_name_incorrect() throws Exception {
         givenThereIsAProduct("99ad55f5-6eab-4d73-b383-c63268e251e8",
                 "{\n" +
-                        "\"name\": \"IPhone X\"\n" +
+                        "\"name\": \"IPhone X\", \"stock\":10" +
                         "}");
         assertRequestWithBody("PATCH",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e8",
-                "{\"name\":\"25\"}",
+                "{\"name\":\"25\", \"stock\":10}",
                 400);
     }
 
@@ -40,7 +40,7 @@ final class ProductPatchControllerTest extends ApplicationTestCase {
     void update_a_product_no_exist() throws Exception {
         assertRequestWithBody("PATCH",
                 "/products/99ad55f5-6eab-4d73-b383-c63268e251e7",
-                "{\"name\":\"ProductNoExist\"}",
+                "{\"name\":\"ProductNoExist\", \"stock\":10}",
                 404);
     }
 

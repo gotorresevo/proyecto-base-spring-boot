@@ -3,21 +3,22 @@ package com.evobank.shopping.submodules.products.application.update;
 import com.evobank.shopping.submodules.products.application.create.CreateProductCommand;
 import com.evobank.shopping.submodules.products.domain.vo.ProductIdMother;
 import com.evobank.shopping.submodules.products.domain.vo.ProductNameMother;
+import com.evobank.shopping.submodules.products.domain.vo.ProductStockMother;
 
 public final class UpdateProductCommandMother {
-    public static UpdateProductCommand create(String id, String name) {
-        return new UpdateProductCommand(id, name);
+    public static UpdateProductCommand create(String id, String name, Integer stock) {
+        return new UpdateProductCommand(id, name, stock);
     }
 
     public static UpdateProductCommand createName(String name) {
-        return new UpdateProductCommand(ProductIdMother.random().getValue(), name);
+        return new UpdateProductCommand(ProductIdMother.random().getValue(), name, ProductStockMother.random().getValue());
     }
 
     public static UpdateProductCommand random() {
-        return create(ProductIdMother.random().getValue(), ProductNameMother.random().getValue());
+        return create(ProductIdMother.random().getValue(), ProductNameMother.random().getValue(),ProductStockMother.random().getValue());
     }
 
     public static CreateProductCommand createId(String id) {
-        return new CreateProductCommand(id, ProductNameMother.random().getValue());
+        return new CreateProductCommand(id, ProductNameMother.random().getValue(), ProductStockMother.random().getValue());
     }
 }
