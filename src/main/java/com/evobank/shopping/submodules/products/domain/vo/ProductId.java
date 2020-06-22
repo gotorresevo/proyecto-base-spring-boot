@@ -34,7 +34,9 @@ public final class ProductId implements IValueObject {
     }
 
     private void ensureSetValueIfIsNull(String value) {
-        if (null == value) {
+        if (null == value && Process.UPDATE.equals(process)) {
+            throw new ProductIdException("El id no puede ser null");
+        } else if(null == value && Process.CREATE.equals(process)){
             this.value = UUID.randomUUID().toString();
         }
     }

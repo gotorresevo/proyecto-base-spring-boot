@@ -15,7 +15,7 @@ final class AddProductToCartPutControllerTest extends ApplicationTestCase {
                         "}");
         givenThereIsACart("99ad55f5-6eab-4d73-b383-c63268e251e8");
         assertRequest("PUT",
-                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7/10",
+                "/cart/99ad55f5-6eab-4d73-b383-c63268e251e8/product/59ad55f5-6eab-4d73-b383-c63268e251e7/1",
                 201);
     }
 

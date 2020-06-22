@@ -18,7 +18,7 @@ public final class ProductInCart extends AggregateRoot {
 
     public static ProductInCart create(CartId id, ProductInCartProduct product, ProductInCartQuantity quantity, CartValidator validator) {
         ProductInCart productInCart = new ProductInCart(id, product, quantity, validator);
-        productInCart.record(new ProductAggregateToCartDomainEvent(id.getValue(), product.getValue()));
+        productInCart.record(new ProductAggregateToCartDomainEvent(id.getValue(), product.getValue(), quantity.getValue()));
         return productInCart;
     }
 

@@ -6,6 +6,7 @@ import com.evobank.shopping.submodules.products.domain.Product;
 import com.evobank.shopping.submodules.products.domain.service.ProductsValidator;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductName;
+import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;
 import com.evobank.shopping.submodules.products.domain.vo.ProductStock;
 import lombok.AllArgsConstructor;
 
@@ -19,5 +20,10 @@ public final class ProductFactory {
 
     public Product update(ProductId id, ProductName name, ProductStock stock) {
         return Product.update(id, name, stock, searcher);
+    }
+
+    public Product updateStock(Product product, ProductQuantityToSubtract quantityToSubtract) {
+        return Product.updateStock(product,
+                quantityToSubtract, searcher);
     }
 }

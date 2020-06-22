@@ -2,40 +2,37 @@ package com.evobank.shopping.submodules.products.domain.vo;
 
 import com.evobank.architecture.domain.service.IValidator;
 import com.evobank.architecture.domain.vo.IValueObject;
-import com.evobank.shopping.submodules.products.domain.exceptions.ProductNameException;
-import com.evobank.shopping.submodules.products.domain.exceptions.ProductStockException;
+import com.evobank.shopping.submodules.products.domain.exceptions.ProductQuantityToSubtractException;
 import com.evobank.shopping.submodules.products.domain.service.ProductsValidator;
-import com.evobank.shopping.submodules.products.domain.vo.enums.Process;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @EqualsAndHashCode(callSuper = false)
-public final class ProductStock implements IValueObject {
+public final class ProductQuantityToSubtract implements IValueObject {
 
     private Integer value;
 
-    public static ProductStock createFromCommand(Integer value) {
-        return new ProductStock(value);
+    public static ProductQuantityToSubtract createFromCommand(Integer value) {
+        return new ProductQuantityToSubtract(value);
     }
-    public static ProductStock updateFromCommand(Integer value) {
-        return new ProductStock(value);
+    public static ProductQuantityToSubtract updateFromCommand(Integer value) {
+        return new ProductQuantityToSubtract(value);
     }
 
     private void ensureNull(Integer value) {
         if (null == value)
-            throw new ProductStockException("Para crear el producto debe enviar el stock");
+            throw new ProductQuantityToSubtractException("Para restar la cantidad del producto en stock debe enviar una cantidad valida");
     }
 
     private void ensureEmpty(Integer value) {
         if (0 > value)
-            throw new ProductStockException("El stock del producto no puede ser menor a 0");
+            throw new ProductQuantityToSubtractException("Para restar la cantidad del producto en stock debe enviar una cantidad mayor a 0");
     }
 
 
@@ -44,9 +41,5 @@ public final class ProductStock implements IValueObject {
         ProductsValidator fundsSearcher = (ProductsValidator) searcher;
         ensureNull(getValue());
         ensureEmpty(getValue());
-    }
-
-    public ProductStock subtract(ProductQuantityToSubtract quantityToSubtract) {
-        return new ProductStock(getValue()-quantityToSubtract.getValue());
     }
 }

@@ -1,102 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
-  <bpmn:process id="my-project-process" isExecutable="true">
+  <bpmn:process id="process-stock-products" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="inicio">
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="check-weather" />
+    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="subtract-stock" />
     <bpmn:endEvent id="EndEvent_0x6ir2l" name="fin">
-      <bpmn:incoming>Flow_038jjpc</bpmn:incoming>
-      <bpmn:incoming>Flow_1v9tqg1</bpmn:incoming>
+      <bpmn:incoming>Flow_08ln7rm</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_16gzt2m" sourceRef="check-weather" targetRef="manual" />
-    <bpmn:exclusiveGateway id="Gateway_1bkhkew" name="¿Clima OK?">
-      <bpmn:incoming>Flow_1uby2qv</bpmn:incoming>
-      <bpmn:outgoing>Flow_038jjpc</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1jdg3z2</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_038jjpc" name="OK" sourceRef="Gateway_1bkhkew" targetRef="EndEvent_0x6ir2l">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{status}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="check-weather" name="Chequear el clima" camunda:class="com.evobanco.camunda.workflow.delegates.CheckWeatherDelegate">
+    <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="subtract-stock" targetRef="EndEvent_0x6ir2l" />
+    <bpmn:serviceTask id="subtract-stock" name="Restar Stock al Producto" camunda:class="com.evobank.shopping.submodules.products.application.bpm.delegate.ProductSubtractStockDelegate">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_16gzt2m</bpmn:outgoing>
+      <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_1jdg3z2" name="KO" sourceRef="Gateway_1bkhkew" targetRef="show-the-weather-problem">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{not status}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="show-the-weather-problem" name="Mostrar problema del clima" camunda:class="com.evobanco.camunda.workflow.delegates.ShoeTheWeatherProblemDelegate">
-      <bpmn:incoming>Flow_1jdg3z2</bpmn:incoming>
-      <bpmn:outgoing>Flow_1v9tqg1</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_1v9tqg1" sourceRef="show-the-weather-problem" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:sequenceFlow id="Flow_1uby2qv" sourceRef="manual" targetRef="Gateway_1bkhkew" />
-    <bpmn:userTask id="manual" name="Manual">
-      <bpmn:incoming>SequenceFlow_16gzt2m</bpmn:incoming>
-      <bpmn:outgoing>Flow_1uby2qv</bpmn:outgoing>
-    </bpmn:userTask>
   </bpmn:process>
+  <bpmn:message id="Message_0ks4a4g" name="Message_1bvfmu0" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="my-project-process">
-      <bpmndi:BPMNEdge id="Flow_1uby2qv_di" bpmnElement="Flow_1uby2qv">
-        <di:waypoint x="390" y="257" />
-        <di:waypoint x="455" y="257" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1v9tqg1_di" bpmnElement="Flow_1v9tqg1">
-        <di:waypoint x="680" y="120" />
-        <di:waypoint x="781" y="120" />
-        <di:waypoint x="781" y="257" />
-        <di:waypoint x="842" y="257" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1jdg3z2_di" bpmnElement="Flow_1jdg3z2">
-        <di:waypoint x="480" y="232" />
-        <di:waypoint x="480" y="120" />
-        <di:waypoint x="580" y="120" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="487" y="172" width="17" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_038jjpc_di" bpmnElement="Flow_038jjpc">
-        <di:waypoint x="505" y="257" />
-        <di:waypoint x="842" y="257" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="570" y="239" width="17" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_16gzt2m_di" bpmnElement="SequenceFlow_16gzt2m">
-        <di:waypoint x="250" y="257" />
-        <di:waypoint x="290" y="257" />
-      </bpmndi:BPMNEdge>
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process-stock-products">
       <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
-        <di:waypoint x="200" y="178" />
-        <di:waypoint x="200" y="217" />
+        <di:waypoint x="218" y="160" />
+        <di:waypoint x="300" y="160" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
-        <dc:Bounds x="842" y="239" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="854" y="282" width="12" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1bkhkew_di" bpmnElement="Gateway_1bkhkew" isMarkerVisible="true">
-        <dc:Bounds x="455" y="232" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="450" y="289" width="61" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_03fh9hp_di" bpmnElement="show-the-weather-problem">
-        <dc:Bounds x="580" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0tpl6er_di" bpmnElement="check-weather">
-        <dc:Bounds x="150" y="217" width="100" height="80" />
-      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_08ln7rm_di" bpmnElement="Flow_08ln7rm">
+        <di:waypoint x="400" y="160" />
+        <di:waypoint x="472" y="160" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="182" y="142" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="187" y="118" width="26" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_165arec_di" bpmnElement="manual">
-        <dc:Bounds x="290" y="217" width="100" height="80" />
+      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
+        <dc:Bounds x="472" y="142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="484" y="185" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0eg175z_di" bpmnElement="subtract-stock">
+        <dc:Bounds x="300" y="120" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -47,7 +47,7 @@ public final class ProductName implements IValueObject {
     }
 
     private void ensureThatTheProductNameDoesNotExist(ProductsValidator fundsSearcher) {
-        if (fundsSearcher.isThereAProductWithTheSameName(this))
+        if (fundsSearcher.isThereAProductWithTheSameName(this) && Process.CREATE.equals(process))
             throw new ProductNameException(String.format("El nombre '%s' dado al producto ya existe en otro producto", getValue()));
     }
 
