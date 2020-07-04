@@ -19,7 +19,7 @@ import org.springframework.context.annotation.FilterType;
 		BpmDelegate.class,
 		DomainEventSubscriber.class,
 		InjectDependency.class,
-		CommandHandler.class,
+		//CommandHandler.class,
 		QueryHandler.class,
 		CaseOfUse.class,
 		Adapter.class,

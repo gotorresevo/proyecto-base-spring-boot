@@ -9,7 +9,7 @@ import org.camunda.bpm.engine.task.Task;
 
 import java.util.Optional;
 
-@com.evobank.architecture.application.CommandHandler
+@com.evobank.architecture.application.CommandHandler("continueProcessCommandHandlerUserTask")
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
 public final class ContinueProcessCommandHandler implements ICommandResultHandler<ContinueProcessCommand, Response> {
 

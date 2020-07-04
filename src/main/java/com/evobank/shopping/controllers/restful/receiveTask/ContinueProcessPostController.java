@@ -1,12 +1,11 @@
-package com.evobank.shopping.controllers.restful.userTask;
+package com.evobank.shopping.controllers.restful.receiveTask;
 
 import com.evobank.architecture.application.ApiController;
 import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
 import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.userTask.application.process.ContinueProcessCommand;
-import com.evobank.shopping.submodules.userTask.application.process.InitProcessCommand;
+import com.evobank.shopping.submodules.receiveTask.application.process.ContinueProcessCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("continueProcessUserTaskController")
+@RestController("continueProcessReceiveTaskController")
 @Slf4j
 public final class ContinueProcessPostController extends ApiController {
 
@@ -23,7 +22,7 @@ public final class ContinueProcessPostController extends ApiController {
         super(IQueryBus, ICommandBus);
     }
 
-    @PostMapping("/continue-process/user-task/{paramPath}")
+    @PostMapping("/continue-process/receive-task/{paramPath}")
     public ResponseEntity init(@PathVariable String paramPath) {
         try {
             dispatch(new ContinueProcessCommand(paramPath));
