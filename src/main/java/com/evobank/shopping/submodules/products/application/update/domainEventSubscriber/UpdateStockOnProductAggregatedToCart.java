@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.products.application.bpm.domainEventSubscriber;
+package com.evobank.shopping.submodules.products.application.update.domainEventSubscriber;
 
 import com.evobank.architecture.domain.bus.event.DomainEventSubscriber;
 import com.evobank.architecture.infrastructure.InjectDependency;
