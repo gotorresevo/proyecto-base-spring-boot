@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1vh8wwj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
   <decision id="DecisionTable" name="DecisionTable">
-    <decisionTable id="DecisionTable_1ftfpun">
+    <decisionTable id="DecisionTable_1ftfpun" hitPolicy="FIRST">
       <input id="Input_1" label="Temporadas" camunda:inputVariable="currentSeason">
         <inputExpression id="InputExpression_1" typeRef="string">
           <text>season</text>
@@ -40,7 +40,7 @@
           <text>"Primavera"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1sg3uw0">
-          <text>&lt;= 4</text>
+          <text>&lt;= 5</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_02rv3n9">
           <text>"Filete Gourment Envejecido En Seco"</text>
@@ -62,7 +62,7 @@
           <text>"Otoño","Invierno","Primavera"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1w8myna">
-          <text>&gt; 8</text>
+          <text>&gt;= 8</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_04vvxqc">
           <text>"Estofado"</text>

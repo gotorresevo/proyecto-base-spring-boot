@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
@@ -34,6 +35,8 @@ public final class InitProcessBusinessRuleTaskCommandHandler implements ICommand
                 .includeInputs()
                 .includeOutputs()
                 .list();
-        return Optional.of(new ResultResponse(historicDecisions.get(0).getOutputs().get(0).getValue().toString()));
+        return Optional.of(new ResultResponse(historicDecisions.get(0).getOutputs().stream()
+                .map(historicDecisionOutputInstance -> historicDecisionOutputInstance.getValue())
+                    .collect(Collectors.toList())));
     }
 }
