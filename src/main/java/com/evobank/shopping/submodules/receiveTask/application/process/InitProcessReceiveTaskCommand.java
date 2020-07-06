@@ -6,6 +6,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class InitProcessCommand implements ICommand {
+public final class InitProcessReceiveTaskCommand implements ICommand {
     private String var1;
 }

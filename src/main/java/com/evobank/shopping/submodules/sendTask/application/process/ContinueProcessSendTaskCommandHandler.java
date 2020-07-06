@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.userTask.application.process;
+package com.evobank.shopping.submodules.sendTask.application.process;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
@@ -9,14 +9,14 @@ import org.camunda.bpm.engine.task.Task;
 
 import java.util.Optional;
 
-@com.evobank.architecture.application.CommandHandler("continueProcessCommandHandlerUserTask")
+@com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
-public final class ContinueProcessCommandHandler implements ICommandResultHandler<ContinueProcessCommand, Response> {
+public final class ContinueProcessSendTaskCommandHandler implements ICommandResultHandler<ContinueProcessSendTaskCommand, Response> {
 
     private final TaskService taskService;
 
     @Override
-    public Optional<Response> handle(ContinueProcessCommand command) {
+    public Optional<Response> handle(ContinueProcessSendTaskCommand command) {
 
         Task task = taskService.createTaskQuery()
                 .processDefinitionKey("process-user-task")

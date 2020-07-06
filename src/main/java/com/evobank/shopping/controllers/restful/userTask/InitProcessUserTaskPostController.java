@@ -1,11 +1,11 @@
-package com.evobank.shopping.controllers.restful.receiveTask;
+package com.evobank.shopping.controllers.restful.userTask;
 
 import com.evobank.architecture.application.ApiController;
 import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
 import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.receiveTask.application.process.ContinueProcessCommand;
+import com.evobank.shopping.submodules.userTask.application.InitProcessUserTaskCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("continueProcessReceiveTaskController")
+@RestController("initProcessUserTaskController")
 @Slf4j
-public final class ContinueProcessPostController extends ApiController {
+public final class InitProcessUserTaskPostController extends ApiController {
 
     @InjectDependency
-    public ContinueProcessPostController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
+    public InitProcessUserTaskPostController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
         super(IQueryBus, ICommandBus);
     }
 
-    @PostMapping("/continue-process/receive-task/{paramPath}")
+    @PostMapping("/init-process/user-task/{paramPath}")
     public ResponseEntity init(@PathVariable String paramPath) {
         try {
-            dispatch(new ContinueProcessCommand(paramPath));
+            dispatch(new InitProcessUserTaskCommand(paramPath));
             return new ResponseEntity(HttpStatus.CREATED);
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);

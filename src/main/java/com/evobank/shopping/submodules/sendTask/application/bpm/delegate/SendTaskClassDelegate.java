@@ -2,9 +2,6 @@ package com.evobank.shopping.submodules.sendTask.application.bpm.delegate;
 
 import com.evobank.architecture.application.BpmDelegate;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.products.domain.vo.ProductId;
-import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;
-import com.evobank.shopping.submodules.products.usecases.ProductStockUpdater;
 import com.evobank.shopping.submodules.sendTask.usecases.UseCasesSendTask;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

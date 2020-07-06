@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.sendTask.application.process;
+package com.evobank.shopping.submodules.userTask.application;
 
 import com.evobank.architecture.domain.bus.command.ICommand;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public final class ContinueProcessCommand implements ICommand {
+public final class InitProcessUserTaskCommand implements ICommand {
     private String var1;
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1vh8wwj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <decision id="DecisionTable" name="DecisionTable">
+    <decisionTable id="DecisionTable_1ftfpun">
+      <input id="Input_1" label="Temporadas" camunda:inputVariable="currentSeason">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>season</text>
+        </inputExpression>
+      </input>
+      <input id="Input_2" label="Cantidad de Invitados" camunda:inputVariable="currentGuestCount">
+        <inputExpression id="InputExpression_2" typeRef="integer">
+          <text>guestCount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Platos" name="desiredDish" typeRef="string" />
+      <rule id="DecisionRule_1n0k7v0">
+        <inputEntry id="UnaryTests_0vf3jk4">
+          <text>"Otoño"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05irn0a">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04q97p5">
+          <text>"Costillares"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_010h1am">
+        <inputEntry id="UnaryTests_1n3nmkf">
+          <text>"Invierno"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04seds6">
+          <text>&lt;= 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0npxc8x">
+          <text>"Carne asada"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ll62d6">
+        <inputEntry id="UnaryTests_02hbcu6">
+          <text>"Primavera"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sg3uw0">
+          <text>&lt;= 4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02rv3n9">
+          <text>"Filete Gourment Envejecido En Seco"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ktym2e">
+        <inputEntry id="UnaryTests_07ajv9h">
+          <text>"Primavera"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aspasy">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1381gnq">
+          <text>"Filete"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r872d8">
+        <inputEntry id="UnaryTests_1cio8tv">
+          <text>"Otoño","Invierno","Primavera"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w8myna">
+          <text>&gt; 8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04vvxqc">
+          <text>"Estofado"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uv9zo4">
+        <inputEntry id="UnaryTests_0708zgh">
+          <text>"Verano"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w46cul">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02sfbr8">
+          <text>"Ensalada ligera y buen filete"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
