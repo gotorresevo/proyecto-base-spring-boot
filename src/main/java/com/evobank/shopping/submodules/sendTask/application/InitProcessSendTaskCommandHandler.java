@@ -1,13 +1,13 @@
-package com.evobank.shopping.submodules.sendTask.application.process;
+package com.evobank.shopping.submodules.sendTask.application;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.shopping.submodules.sendTask.businessProcess.ProcessSendTask;
+import com.evobank.shopping.submodules.sendTask.domain.vo.SendTaskVar1;
 import lombok.AllArgsConstructor;
 import org.camunda.bpm.engine.ProcessEngine;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
@@ -15,13 +15,12 @@ import java.util.Optional;
 public final class InitProcessSendTaskCommandHandler implements ICommandResultHandler<InitProcessSendTaskCommand, Response> {
 
     private final ProcessEngine processEngine;
+    private final ProcessSendTask processSendTask;
 
     @Override
     public Optional<Response> handle(InitProcessSendTaskCommand command) {
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("var1", command.getVar1());
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey("process-send-task", command.getVar1(), variables);
+
+        processSendTask.init(SendTaskVar1.createFromCommand(command.getVar1()));
         return Optional.empty();
     }
 }

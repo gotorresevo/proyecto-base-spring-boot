@@ -20,4 +20,6 @@ public interface IBpmEngine {
      * @param userName  nombre del usuario al que se le asignará completar la tarea.
      */
     void completeTask(String idProcess, String key, String userName);
+
+    void sendSignal(String idProcess, String idReceiveTask, String value);
 }

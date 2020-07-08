@@ -5,7 +5,7 @@ import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
 import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.receiveTask.application.process.InitProcessReceiveTaskCommand;
+import com.evobank.shopping.submodules.receiveTask.application.InitProcessReceiveTaskCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

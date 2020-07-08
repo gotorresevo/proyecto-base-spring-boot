@@ -1,27 +1,23 @@
-package com.evobank.shopping.submodules.receiveTask.application.process;
+package com.evobank.shopping.submodules.receiveTask.application;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.shopping.submodules.receiveTask.businessProcess.ProcessReceiveTask;
+import com.evobank.shopping.submodules.receiveTask.domain.vo.ReceiveTaskVar1;
 import lombok.AllArgsConstructor;
-import org.camunda.bpm.engine.ProcessEngine;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
 public final class InitProcessReceiveTaskCommandHandler implements ICommandResultHandler<InitProcessReceiveTaskCommand, Response> {
 
-    private final ProcessEngine processEngine;
+    private final ProcessReceiveTask processReceiveTask;
 
     @Override
     public Optional<Response> handle(InitProcessReceiveTaskCommand command) {
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("var1", command.getVar1());
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey("process-receive-task", command.getVar1(), variables);
+        processReceiveTask.init(ReceiveTaskVar1.createFromCommand(command.getVar1()));
         return Optional.empty();
     }
 }
