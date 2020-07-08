@@ -16,6 +16,23 @@ public interface IBpmEngine {
     String startProcessInstance(String idProcess, String key, Map<String, Object> variables);
 
     /**
+     * Inicia una instancia de proceso
+     *
+     * @param idProcess id del proceso
+     * @param variables variables que se relacionan a la instancia de proceso que se inicia
+     * @return id de la instancia de proceso iniciada
+     */
+    String startProcessInstance(String idProcess, Map<String, Object> variables);
+
+    /**
+     * Inicia una instancia de proceso
+     *
+     * @param idProcess id del proceso
+     * @return id de la instancia de proceso iniciada
+     */
+    String startProcessInstance(String idProcess);
+
+    /**
      * Coloca en estado "COMPLETADA" una tarea manual.
      *
      * @param idProcess id del proceso
@@ -26,7 +43,9 @@ public interface IBpmEngine {
 
     void sendSignal(String idProcess, String idReceiveTask, String value);
 
-    void startProcessInstance(String idProcess);
+
 
     Stream<Object> getOutputsBusinessRule(String idInstanceProcess, String idDecisionDefinition);
+
+
 }

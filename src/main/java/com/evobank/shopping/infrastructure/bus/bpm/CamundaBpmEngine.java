@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -31,6 +30,12 @@ public final class CamundaBpmEngine implements IBpmEngine {
     public String startProcessInstance(String idProcess, String key, Map<String, Object> variables) {
         return processEngine.getRuntimeService()
                 .startProcessInstanceByKey(idProcess, key, variables).getId();
+    }
+
+    @Override
+    public String startProcessInstance(String idProcess, Map<String, Object> variables) {
+        return processEngine.getRuntimeService()
+                .startProcessInstanceByKey(idProcess, variables).getId();
     }
 
     @Override
@@ -54,9 +59,9 @@ public final class CamundaBpmEngine implements IBpmEngine {
     }
 
     @Override
-    public void startProcessInstance(String idProcess) {
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey(idProcess);
+    public String startProcessInstance(String idProcess) {
+        return processEngine.getRuntimeService()
+                .startProcessInstanceByKey(idProcess).getId();
     }
 
     @Override

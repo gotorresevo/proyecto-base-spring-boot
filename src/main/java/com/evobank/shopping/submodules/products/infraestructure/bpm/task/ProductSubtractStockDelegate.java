@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.products.application.bpm.delegate;
+package com.evobank.shopping.submodules.products.infraestructure.bpm.task;
 
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.springframework.stereotype.Component;
 
 
 @AllArgsConstructor(onConstructor_= {@InjectDependency})
 @NoArgsConstructor(force = true)
 @Slf4j
+@Component
 public final class ProductSubtractStockDelegate implements JavaDelegate {
 
     private final ProductStockUpdater updater;

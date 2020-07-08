@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_08ln7rm</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="subtract-stock" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:serviceTask id="subtract-stock" name="Restar Stock al Producto" camunda:class="com.evobank.shopping.submodules.products.application.bpm.delegate.ProductSubtractStockDelegate">
+    <bpmn:serviceTask id="subtract-stock" name="Restar Stock al Producto" camunda:class="com.evobank.shopping.submodules.products.infraestructure.bpm.task.ProductSubtractStockDelegate">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:serviceTask>

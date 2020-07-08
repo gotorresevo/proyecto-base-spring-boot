@@ -2,28 +2,23 @@ package com.evobank.shopping.submodules.products.application.update.domainEventS
 
 import com.evobank.architecture.domain.bus.event.DomainEventSubscriber;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.shopping.submodules.products.businessProcess.ProcessStockProducts;
+import com.evobank.shopping.submodules.products.domain.vo.ProductId;
+import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;
 import com.evobank.shopping.submodules.shared.carts.domain.events.ProductAggregateToCartDomainEvent;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.camunda.bpm.engine.ProcessEngine;
 import org.springframework.context.event.EventListener;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @DomainEventSubscriber({ProductAggregateToCartDomainEvent.class})
 @AllArgsConstructor(onConstructor_= {@InjectDependency})
 @Slf4j
 public final class UpdateStockOnProductAggregatedToCart {
-
-    private final ProcessEngine processEngine;
+    private final ProcessStockProducts processStockProducts;
 
     @EventListener
     public void on(ProductAggregateToCartDomainEvent event) {
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("idProduct", event.getIdProduct());
-        variables.put("quantity", event.getQuantity());
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey("process-stock-products", variables);
+        processStockProducts.init(ProductId.createFromCommand(event.getIdProduct()),
+                ProductQuantityToSubtract.createFromCommand(event.getQuantity()));
     }
 }
