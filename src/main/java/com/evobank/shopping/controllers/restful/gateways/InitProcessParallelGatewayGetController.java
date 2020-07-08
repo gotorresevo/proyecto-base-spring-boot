@@ -1,12 +1,12 @@
-package com.evobank.shopping.controllers.restful.businessRuleTask;
+package com.evobank.shopping.controllers.restful.gateways;
 
 import com.evobank.architecture.application.ApiController;
 import com.evobank.architecture.domain.bus.command.CommandHandlerExecutionError;
 import com.evobank.architecture.domain.bus.command.ICommandBus;
 import com.evobank.architecture.domain.bus.query.IQueryBus;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.businessRuleTask.application.process.InitProcessBusinessRuleTaskCommand;
-import com.evobank.shopping.submodules.businessRuleTask.application.process.ResultResponse;
+import com.evobank.shopping.submodules.gateways.application.process.exclusive.InitProcessExclusiveGatewayCommand;
+import com.evobank.shopping.submodules.gateways.application.process.parallel.InitProcessParallelGatewayCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,18 +17,18 @@ import javax.ws.rs.QueryParam;
 
 @RestController
 @Slf4j
-public final class InitProcessBusinessRuleTaskGetController extends ApiController {
+public final class InitProcessParallelGatewayGetController extends ApiController {
 
     @InjectDependency
-    public InitProcessBusinessRuleTaskGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
+    public InitProcessParallelGatewayGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
         super(IQueryBus, ICommandBus);
     }
 
-    @GetMapping("/init-process/business-rule-task")
-    public ResponseEntity init(@QueryParam("var1") String var1, @QueryParam("var2") String var2) {
+    @GetMapping("/init-process/gateway/parallel")
+    public ResponseEntity init() {
         try {
-            ResultResponse resultResponse = (ResultResponse) dispatch(new InitProcessBusinessRuleTaskCommand(var1, var2)).orElseThrow(RuntimeException::new);
-            return new ResponseEntity(resultResponse, HttpStatus.OK);
+            return dispatch(new InitProcessParallelGatewayCommand()).map(response -> new ResponseEntity(response, HttpStatus.OK))
+                    .orElseGet(() -> new ResponseEntity(HttpStatus.NO_CONTENT));
         } catch (CommandHandlerExecutionError commandHandlerExecutionError) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }

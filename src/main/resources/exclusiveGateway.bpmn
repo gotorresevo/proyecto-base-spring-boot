@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:process id="process-exclusive-gateway" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="inicio">
+      <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1fp17al" sourceRef="StartEvent_1" targetRef="exclusive-gateway" />
+    <bpmn:endEvent id="EndEvent_0x6ir2l" name="fin">
+      <bpmn:incoming>Flow_08ln7rm</bpmn:incoming>
+      <bpmn:incoming>Flow_1vc75fi</bpmn:incoming>
+      <bpmn:incoming>Flow_1s1wkpp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="to-do-a" targetRef="EndEvent_0x6ir2l" />
+    <bpmn:serviceTask id="to-do-a" name="Hacer A" camunda:class="com.evobank.shopping.submodules.gateways.application.bpm.delegate.ToDoADelegate">
+      <bpmn:incoming>flow-a</bpmn:incoming>
+      <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="exclusive-gateway" default="flow-default">
+      <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
+      <bpmn:outgoing>flow-a</bpmn:outgoing>
+      <bpmn:outgoing>flow-b</bpmn:outgoing>
+      <bpmn:outgoing>flow-default</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="to-do-b" name="Hacer B" camunda:class="com.evobank.shopping.submodules.gateways.application.bpm.delegate.ToDoBDelegate">
+      <bpmn:incoming>flow-b</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vc75fi</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="to-do-default" name="Hacer por defecto" camunda:class="com.evobank.shopping.submodules.gateways.application.bpm.delegate.ToDoDefaultDelegate">
+      <bpmn:incoming>flow-default</bpmn:incoming>
+      <bpmn:outgoing>Flow_1s1wkpp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="flow-a" name="Flujo A" sourceRef="exclusive-gateway" targetRef="to-do-a">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${value=='A'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="flow-b" name="Flujo B" sourceRef="exclusive-gateway" targetRef="to-do-b">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${value=='B'}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="flow-default" name="Por defecto" sourceRef="exclusive-gateway" targetRef="to-do-default" />
+    <bpmn:sequenceFlow id="Flow_1vc75fi" sourceRef="to-do-b" targetRef="EndEvent_0x6ir2l" />
+    <bpmn:sequenceFlow id="Flow_1s1wkpp" sourceRef="to-do-default" targetRef="EndEvent_0x6ir2l" />
+  </bpmn:process>
+  <bpmn:message id="Message_0ks4a4g" name="Message_1bvfmu0" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process-exclusive-gateway">
+      <bpmndi:BPMNEdge id="Flow_08ln7rm_di" bpmnElement="Flow_08ln7rm">
+        <di:waypoint x="430" y="100" />
+        <di:waypoint x="476" y="100" />
+        <di:waypoint x="476" y="190" />
+        <di:waypoint x="522" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
+        <di:waypoint x="218" y="190" />
+        <di:waypoint x="245" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0assana_di" bpmnElement="flow-a">
+        <di:waypoint x="270" y="165" />
+        <di:waypoint x="270" y="100" />
+        <di:waypoint x="330" y="100" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="268" y="83" width="35" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ppdan3_di" bpmnElement="flow-b">
+        <di:waypoint x="295" y="190" />
+        <di:waypoint x="330" y="190" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="292" y="163" width="35" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xhfjhq_di" bpmnElement="flow-default">
+        <di:waypoint x="270" y="215" />
+        <di:waypoint x="270" y="280" />
+        <di:waypoint x="330" y="280" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="258" y="283" width="57" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vc75fi_di" bpmnElement="Flow_1vc75fi">
+        <di:waypoint x="430" y="190" />
+        <di:waypoint x="522" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1s1wkpp_di" bpmnElement="Flow_1s1wkpp">
+        <di:waypoint x="430" y="280" />
+        <di:waypoint x="470" y="280" />
+        <di:waypoint x="470" y="190" />
+        <di:waypoint x="522" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_0eg175z_di" bpmnElement="to-do-a">
+        <dc:Bounds x="330" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1mxrwn0_di" bpmnElement="to-do-b">
+        <dc:Bounds x="330" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rmu1ma_di" bpmnElement="to-do-default">
+        <dc:Bounds x="330" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0y0l6hp_di" bpmnElement="exclusive-gateway" isMarkerVisible="true">
+        <dc:Bounds x="245" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="187" y="148" width="26" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0x6ir2l_di" bpmnElement="EndEvent_0x6ir2l">
+        <dc:Bounds x="522" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="535" y="215" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1vh8wwj" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
   <decision id="DecisionTable" name="DecisionTable">
-    <decisionTable id="DecisionTable_1ftfpun" hitPolicy="FIRST">
+    <decisionTable id="DecisionTable_1ftfpun" hitPolicy="COLLECT">
       <input id="Input_1" label="Temporadas" camunda:inputVariable="currentSeason">
         <inputExpression id="InputExpression_1" typeRef="string">
           <text>season</text>
