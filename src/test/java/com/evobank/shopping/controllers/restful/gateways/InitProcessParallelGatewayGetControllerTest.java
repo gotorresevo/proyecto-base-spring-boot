@@ -8,21 +8,21 @@ import org.springframework.test.annotation.DirtiesContext;
 final class InitProcessParallelGatewayGetControllerTest extends ApplicationTestCase {
 
     @Test
-    void initProcessExlusiveGatewayA() throws Exception {
+    void initProcessParallelGatewayA() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/parallel",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayB() throws Exception {
+    void initProcessParallelGatewayB() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/parallel",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayC() throws Exception {
+    void initProcessParallelGatewayC() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/parallel",
                 204);

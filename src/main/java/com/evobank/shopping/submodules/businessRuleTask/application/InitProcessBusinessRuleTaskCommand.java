@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.businessRuleTask.application.process;
+package com.evobank.shopping.submodules.businessRuleTask.application;
 
 import com.evobank.architecture.domain.bus.command.ICommand;
 import lombok.AllArgsConstructor;

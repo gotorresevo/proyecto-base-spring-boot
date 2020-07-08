@@ -8,21 +8,21 @@ import org.springframework.test.annotation.DirtiesContext;
 final class InitProcessExclusiveGatewayGetControllerTest extends ApplicationTestCase {
 
     @Test
-    void initProcessExlusiveGatewayA() throws Exception {
+    void initProcessExclusiveGatewayA() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/exclusive?value=A",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayB() throws Exception {
+    void initProcessExclusiveGatewayB() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/exclusive?value=B",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayC() throws Exception {
+    void initProcessExclusiveGatewayC() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/exclusive?value=C",
                 204);

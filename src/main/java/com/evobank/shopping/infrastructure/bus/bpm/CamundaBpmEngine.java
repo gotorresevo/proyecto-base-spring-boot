@@ -3,15 +3,20 @@ package com.evobank.shopping.infrastructure.bus.bpm;
 import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import lombok.AllArgsConstructor;
+import org.camunda.bpm.engine.HistoryService;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
+import org.camunda.bpm.engine.history.HistoricDecisionInstance;
 import org.camunda.bpm.engine.runtime.Execution;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.task.Task;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
@@ -20,11 +25,12 @@ public final class CamundaBpmEngine implements IBpmEngine {
     private final ProcessEngine processEngine;
     private final TaskService taskService;
     private final RuntimeService runtimeService;
+    private final HistoryService historyService;
 
     @Override
-    public void startProcessInstance(String idProcess, String key, Map<String, Object> variables) {
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey(idProcess, key, variables);
+    public String startProcessInstance(String idProcess, String key, Map<String, Object> variables) {
+        return processEngine.getRuntimeService()
+                .startProcessInstanceByKey(idProcess, key, variables).getId();
     }
 
     @Override
@@ -51,5 +57,17 @@ public final class CamundaBpmEngine implements IBpmEngine {
     public void startProcessInstance(String idProcess) {
         processEngine.getRuntimeService()
                 .startProcessInstanceByKey(idProcess);
+    }
+
+    @Override
+    public Stream<Object> getOutputsBusinessRule(String idInstanceProcess, String idDecisionDefinition) {
+        List<HistoricDecisionInstance> historicDecisions = historyService.createHistoricDecisionInstanceQuery()
+                .processInstanceId(idInstanceProcess)
+                .decisionDefinitionKey("DecisionTable")
+                .includeInputs()
+                .includeOutputs()
+                .list();
+        return historicDecisions.get(0).getOutputs().stream()
+                .map(historicDecisionOutputInstance -> historicDecisionOutputInstance.getValue());
     }
 }

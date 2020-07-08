@@ -1,16 +1,19 @@
 package com.evobank.architecture.domain.bus.bpm;
 
 import java.util.Map;
+import java.util.stream.Stream;
 
 public interface IBpmEngine {
+
     /**
      * Inicia una instancia de proceso
      *
      * @param idProcess id del proceso
      * @param key       clave a relacionar a la instancia del proceso que se inicia
      * @param variables variables que se relacionan a la instancia de proceso que se inicia
+     * @return id de la instancia de proceso iniciada
      */
-    void startProcessInstance(String idProcess, String key, Map<String, Object> variables);
+    String startProcessInstance(String idProcess, String key, Map<String, Object> variables);
 
     /**
      * Coloca en estado "COMPLETADA" una tarea manual.
@@ -24,4 +27,6 @@ public interface IBpmEngine {
     void sendSignal(String idProcess, String idReceiveTask, String value);
 
     void startProcessInstance(String idProcess);
+
+    Stream<Object> getOutputsBusinessRule(String idInstanceProcess, String idDecisionDefinition);
 }

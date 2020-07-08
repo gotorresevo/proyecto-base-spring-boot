@@ -8,21 +8,21 @@ import org.springframework.test.annotation.DirtiesContext;
 final class InitProcessInclusiveGatewayGetControllerTest extends ApplicationTestCase {
 
     @Test
-    void initProcessExlusiveGatewayA() throws Exception {
+    void initProcessInclusiveGatewayA() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/inclusive?value=A",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayB() throws Exception {
+    void initProcessInclusiveGatewayB() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/inclusive?value=B",
                 204);
     }
 
     @Test
-    void initProcessExlusiveGatewayC() throws Exception {
+    void initProcessInclusiveGatewayC() throws Exception {
         assertRequest("GET",
                 "/init-process/gateway/inclusive?value=C",
                 204);
