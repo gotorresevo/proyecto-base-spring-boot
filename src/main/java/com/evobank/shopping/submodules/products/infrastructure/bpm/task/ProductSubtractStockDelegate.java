@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.products.infraestructure.bpm.task;
+package com.evobank.shopping.submodules.products.infrastructure.bpm.task;
 
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;

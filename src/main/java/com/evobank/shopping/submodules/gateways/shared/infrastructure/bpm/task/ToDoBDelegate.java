@@ -1,7 +1,7 @@
-package com.evobank.shopping.submodules.gateways.shared.infraestructure.bpm.task;
+package com.evobank.shopping.submodules.gateways.shared.infrastructure.bpm.task;
 
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.gateways.shared.usecases.UseCaseDefault;
+import com.evobank.shopping.submodules.gateways.shared.usecases.UseCaseB;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor(force = true)
 @Slf4j
 @Component
-public final class ToDoDefaultDelegate implements JavaDelegate {
+public final class ToDoBDelegate implements JavaDelegate {
 
-    private final UseCaseDefault useCaseDefault;
+    private final UseCaseB useCaseB;
 
     @Override
     public void execute(DelegateExecution delegateExecution) {
-        useCaseDefault.execute();
+        useCaseB.execute();
     }
 }

@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.gateways.shared.infraestructure.bpm.task;
+package com.evobank.shopping.submodules.gateways.shared.infrastructure.bpm.task;
 
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.gateways.shared.usecases.UseCaseA;
