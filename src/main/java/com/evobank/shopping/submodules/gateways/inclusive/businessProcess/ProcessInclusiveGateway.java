@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.gateways.inclusive.businessProcess;
 
-import com.evobank.architecture.businessProcess.BusinessProcess;
+import com.evobank.architecture.businessprocess.BusinessProcess;
 import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.gateways.inclusive.domain.vo.InclusiveGatewayValue;

@@ -2,7 +2,7 @@ package com.evobank.shopping.submodules.products.application.update.domainEventS
 
 import com.evobank.architecture.domain.bus.event.DomainEventSubscriber;
 import com.evobank.architecture.infrastructure.InjectDependency;
-import com.evobank.shopping.submodules.products.businessProcess.ProcessStockProducts;
+import com.evobank.shopping.submodules.products.businessprocess.ProcessStockProducts;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;
 import com.evobank.shopping.submodules.shared.carts.domain.events.ProductAggregateToCartDomainEvent;

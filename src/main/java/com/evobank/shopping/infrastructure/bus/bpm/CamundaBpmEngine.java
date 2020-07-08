@@ -43,7 +43,7 @@ public final class CamundaBpmEngine implements IBpmEngine {
         Task task = taskService.createTaskQuery()
                 .processDefinitionKey(idProcess)
                 .orderByDueDate().asc()
-                .processInstanceBusinessKey(key).singleResult();
+                .processInstanceBusinessKey(key).list().get(0);
         taskService.claim(task.getId(), userName);
         taskService.complete(task.getId());
     }

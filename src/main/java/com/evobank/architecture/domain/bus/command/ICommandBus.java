@@ -5,5 +5,5 @@ import com.evobank.architecture.domain.bus.Response;
 import java.util.Optional;
 
 public interface ICommandBus {
-    <R extends Response> Optional<R> dispatch(ICommand ICommand) ;
+    <R extends Response> Optional<R> dispatch(ICommand command) ;
 }

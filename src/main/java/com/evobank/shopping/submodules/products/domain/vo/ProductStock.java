@@ -2,17 +2,14 @@ package com.evobank.shopping.submodules.products.domain.vo;
 
 import com.evobank.architecture.domain.service.IValidator;
 import com.evobank.architecture.domain.vo.IValueObject;
-import com.evobank.shopping.submodules.products.domain.exceptions.ProductNameException;
 import com.evobank.shopping.submodules.products.domain.exceptions.ProductStockException;
 import com.evobank.shopping.submodules.products.domain.service.ProductsValidator;
-import com.evobank.shopping.submodules.products.domain.vo.enums.Process;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -41,7 +38,6 @@ public final class ProductStock implements IValueObject {
 
     @Override
     public void valid(IValidator searcher, List<IValueObject> valueObjects) {
-        ProductsValidator fundsSearcher = (ProductsValidator) searcher;
         ensureNull(getValue());
         ensureEmpty(getValue());
     }

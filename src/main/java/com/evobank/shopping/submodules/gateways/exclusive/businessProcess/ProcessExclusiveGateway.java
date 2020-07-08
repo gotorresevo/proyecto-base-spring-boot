@@ -1,10 +1,9 @@
 package com.evobank.shopping.submodules.gateways.exclusive.businessProcess;
 
-import com.evobank.architecture.businessProcess.BusinessProcess;
+import com.evobank.architecture.businessprocess.BusinessProcess;
 import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.gateways.exclusive.domain.vo.ExclusiveGatewayValue;
-import com.evobank.shopping.submodules.sendTask.domain.vo.SendTaskVar1;
 import lombok.AllArgsConstructor;
 
 import java.util.HashMap;

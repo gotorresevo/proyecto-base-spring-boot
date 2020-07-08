@@ -19,8 +19,8 @@ import javax.ws.rs.QueryParam;
 public final class InitProcessInclusiveGatewayGetController extends ApiController {
 
     @InjectDependency
-    public InitProcessInclusiveGatewayGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public InitProcessInclusiveGatewayGetController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @GetMapping("/init-process/gateway/inclusive")

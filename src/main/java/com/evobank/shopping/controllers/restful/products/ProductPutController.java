@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 public final class ProductPutController extends ApiController {
 
     @InjectDependency
-    public ProductPutController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public ProductPutController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @PutMapping("/products/{idProduct}")

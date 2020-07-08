@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 public final class InitProcessParallelGatewayGetController extends ApiController {
 
     @InjectDependency
-    public InitProcessParallelGatewayGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public InitProcessParallelGatewayGetController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @GetMapping("/init-process/gateway/parallel")

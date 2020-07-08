@@ -2,7 +2,7 @@ package com.evobank.shopping;
 
 import com.evobank.architecture.application.CommandHandler;
 import com.evobank.architecture.application.QueryHandler;
-import com.evobank.architecture.businessProcess.BusinessProcess;
+import com.evobank.architecture.businessprocess.BusinessProcess;
 import com.evobank.architecture.domain.Factory;
 import com.evobank.architecture.domain.bus.event.DomainEventSubscriber;
 import com.evobank.architecture.domain.service.DomainService;

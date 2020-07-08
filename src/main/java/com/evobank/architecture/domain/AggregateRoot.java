@@ -26,7 +26,7 @@ public abstract class AggregateRoot {
 
     protected final void validValueObject(IValidator searcher){
         DomainException domainException = new DomainException();
-        this.valueObjects.stream().parallel().forEach(aValueObject -> {
+        this.valueObjects.forEach(aValueObject -> {
             try {
                 aValueObject.valid(searcher, valueObjects);
             } catch (RuntimeException e) {

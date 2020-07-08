@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
 public final class ProductPatchController extends ApiController {
 
     @InjectDependency
-    public ProductPatchController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public ProductPatchController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @PatchMapping("/products/{idProduct}")

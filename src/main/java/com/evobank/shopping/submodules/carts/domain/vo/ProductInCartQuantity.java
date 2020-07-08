@@ -2,20 +2,18 @@ package com.evobank.shopping.submodules.carts.domain.vo;
 
 import com.evobank.architecture.domain.service.IValidator;
 import com.evobank.architecture.domain.vo.IValueObject;
-import com.evobank.shopping.submodules.carts.domain.exceptions.CartIdException;
-import com.evobank.shopping.submodules.carts.domain.service.CartValidator;
-import com.evobank.shopping.submodules.shared.products.domain.exceptions.ProductNotFoundException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
-import java.util.UUID;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @EqualsAndHashCode(callSuper = false)
+@Slf4j
 public final class ProductInCartQuantity implements IValueObject {
     private Integer value;
 
@@ -29,6 +27,6 @@ public final class ProductInCartQuantity implements IValueObject {
     }
 
     private void isThereQuantityInStock(Integer value, IValidator finder) {
-
+        log.debug("for Implement");
     }
 }

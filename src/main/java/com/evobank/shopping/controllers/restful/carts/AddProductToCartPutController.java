@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 public final class AddProductToCartPutController extends ApiController {
 
     @InjectDependency
-    public AddProductToCartPutController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public AddProductToCartPutController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @PutMapping("/cart/{idCart}/product/{idProduct}/{quantity}")

@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_08ln7rm</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="test-send-task" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:sendTask id="test-send-task" name="Test Send Task" camunda:class="com.evobank.shopping.submodules.sendTask.infrastructure.bpm.task.SendTaskClassDelegate">
+    <bpmn:sendTask id="test-send-task" name="Test Send Task" camunda:class="com.evobank.shopping.submodules.sendtask.infrastructure.bpm.task.SendTaskClassDelegate">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:sendTask>

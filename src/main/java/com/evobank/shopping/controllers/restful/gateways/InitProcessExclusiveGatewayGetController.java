@@ -19,8 +19,8 @@ import javax.ws.rs.QueryParam;
 public final class InitProcessExclusiveGatewayGetController extends ApiController {
 
     @InjectDependency
-    public InitProcessExclusiveGatewayGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public InitProcessExclusiveGatewayGetController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @GetMapping("/init-process/gateway/exclusive")

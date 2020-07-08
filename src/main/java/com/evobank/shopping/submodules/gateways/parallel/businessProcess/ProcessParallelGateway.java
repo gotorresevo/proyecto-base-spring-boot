@@ -1,6 +1,6 @@
 package com.evobank.shopping.submodules.gateways.parallel.businessProcess;
 
-import com.evobank.architecture.businessProcess.BusinessProcess;
+import com.evobank.architecture.businessprocess.BusinessProcess;
 import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import lombok.AllArgsConstructor;

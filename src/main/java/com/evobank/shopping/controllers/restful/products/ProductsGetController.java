@@ -19,8 +19,8 @@ import java.util.Collections;
 public final class ProductsGetController extends ApiController {
 
     @InjectDependency
-    public ProductsGetController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public ProductsGetController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @GetMapping("/products")

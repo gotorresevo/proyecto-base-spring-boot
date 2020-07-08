@@ -38,7 +38,6 @@ public final class ProductQuantityToSubtract implements IValueObject {
 
     @Override
     public void valid(IValidator searcher, List<IValueObject> valueObjects) {
-        ProductsValidator fundsSearcher = (ProductsValidator) searcher;
         ensureNull(getValue());
         ensureEmpty(getValue());
     }

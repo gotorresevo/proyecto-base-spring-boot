@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 public final class CartPutController extends ApiController {
 
     @InjectDependency
-    public CartPutController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public CartPutController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @PutMapping("/cart/{idCart}")

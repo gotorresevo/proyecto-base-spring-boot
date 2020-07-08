@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
 public final class ProductPostController extends ApiController {
 
     @InjectDependency
-    public ProductPostController(IQueryBus IQueryBus, ICommandBus ICommandBus) {
-        super(IQueryBus, ICommandBus);
+    public ProductPostController(IQueryBus queryBus, ICommandBus commandBus) {
+        super(queryBus, commandBus);
     }
 
     @PostMapping("/products")
