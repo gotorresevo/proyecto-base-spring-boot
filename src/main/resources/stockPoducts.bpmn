@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_08ln7rm</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="subtract-stock" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:serviceTask id="subtract-stock" name="Restar Stock al Producto" camunda:class="ProductSubtractStockDelegate">
+    <bpmn:serviceTask id="subtract-stock" name="Restar Stock al Producto" camunda:class="com.evobank.shopping.submodules.products.infrastructure.bpm.task.ProductSubtractStockDelegate">
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -17,13 +17,13 @@
   <bpmn:message id="Message_0ks4a4g" name="Message_1bvfmu0" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process-stock-products">
-      <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
-        <di:waypoint x="218" y="160" />
-        <di:waypoint x="300" y="160" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_08ln7rm_di" bpmnElement="Flow_08ln7rm">
         <di:waypoint x="400" y="160" />
         <di:waypoint x="472" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fp17al_di" bpmnElement="SequenceFlow_1fp17al">
+        <di:waypoint x="218" y="160" />
+        <di:waypoint x="300" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="182" y="142" width="36" height="36" />

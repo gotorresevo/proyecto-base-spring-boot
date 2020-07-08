@@ -11,7 +11,7 @@
       <bpmn:incoming>Flow_1s1wkpp</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="to-do-a" targetRef="EndEvent_0x6ir2l" />
-    <bpmn:serviceTask id="to-do-a" name="Hacer A" camunda:class="ToDoADelegate">
+    <bpmn:serviceTask id="to-do-a" name="Hacer A" camunda:class="com.evobank.shopping.submodules.gateways.shared.infrastructure.bpm.task.ToDoADelegate">
       <bpmn:incoming>flow-a</bpmn:incoming>
       <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -21,11 +21,11 @@
       <bpmn:outgoing>flow-b</bpmn:outgoing>
       <bpmn:outgoing>flow-default</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="to-do-b" name="Hacer B" camunda:class="ToDoBDelegate">
+    <bpmn:serviceTask id="to-do-b" name="Hacer B" camunda:class="com.evobank.shopping.submodules.gateways.shared.infrastructure.bpm.task.ToDoBDelegate">
       <bpmn:incoming>flow-b</bpmn:incoming>
       <bpmn:outgoing>Flow_1vc75fi</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="to-do-default" name="Hacer por defecto" camunda:class="ToDoDefaultDelegate">
+    <bpmn:serviceTask id="to-do-default" name="Hacer por defecto" camunda:class="com.evobank.shopping.submodules.gateways.shared.infrastructure.bpm.task.ToDoDefaultDelegate">
       <bpmn:incoming>flow-default</bpmn:incoming>
       <bpmn:outgoing>Flow_1s1wkpp</bpmn:outgoing>
     </bpmn:serviceTask>
