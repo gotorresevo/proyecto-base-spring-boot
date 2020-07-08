@@ -1,6 +1,5 @@
 package com.evobank.shopping.submodules.sendTask.application.bpm.delegate;
 
-import com.evobank.architecture.application.BpmDelegate;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.sendTask.usecases.UseCasesSendTask;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,6 @@ import org.camunda.bpm.engine.runtime.ProcessInstance;
 
 @AllArgsConstructor(onConstructor_= {@InjectDependency})
 @NoArgsConstructor(force = true)
-@BpmDelegate
 @Slf4j
 public final class SendTaskClassDelegate implements JavaDelegate {
 

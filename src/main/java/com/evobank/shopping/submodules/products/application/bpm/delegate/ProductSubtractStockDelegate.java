@@ -1,6 +1,5 @@
 package com.evobank.shopping.submodules.products.application.bpm.delegate;
 
-import com.evobank.architecture.application.BpmDelegate;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;
@@ -14,7 +13,6 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 @AllArgsConstructor(onConstructor_= {@InjectDependency})
 @NoArgsConstructor(force = true)
-@BpmDelegate
 @Slf4j
 public final class ProductSubtractStockDelegate implements JavaDelegate {
 
