@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.gateways.usecases;
+package com.evobank.shopping.submodules.gateways.shared.usecases;
 
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.architecture.usecases.CaseOfUse;

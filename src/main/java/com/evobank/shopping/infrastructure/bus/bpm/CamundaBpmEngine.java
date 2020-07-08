@@ -46,4 +46,10 @@ public final class CamundaBpmEngine implements IBpmEngine {
                 .processInstanceId(processInstance.getId()).activityId(idReceiveTask).singleResult();
         runtimeService.signal(execution.getId());
     }
+
+    @Override
+    public void startProcessInstance(String idProcess) {
+        processEngine.getRuntimeService()
+                .startProcessInstanceByKey(idProcess);
+    }
 }

@@ -22,4 +22,6 @@ public interface IBpmEngine {
     void completeTask(String idProcess, String key, String userName);
 
     void sendSignal(String idProcess, String idReceiveTask, String value);
+
+    void startProcessInstance(String idProcess);
 }

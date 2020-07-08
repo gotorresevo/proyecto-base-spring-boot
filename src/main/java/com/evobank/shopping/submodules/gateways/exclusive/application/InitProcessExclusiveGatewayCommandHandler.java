@@ -1,27 +1,23 @@
-package com.evobank.shopping.submodules.gateways.application.process.exclusive;
+package com.evobank.shopping.submodules.gateways.exclusive.application;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.shopping.submodules.gateways.exclusive.businessProcess.ProcessExclusiveGateway;
+import com.evobank.shopping.submodules.gateways.exclusive.domain.vo.ExclusiveGatewayValue;
 import lombok.AllArgsConstructor;
-import org.camunda.bpm.engine.ProcessEngine;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @com.evobank.architecture.application.CommandHandler
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
 public final class InitProcessExclusiveGatewayCommandHandler implements ICommandResultHandler<InitProcessExclusiveGatewayCommand, Response> {
 
-    private final ProcessEngine processEngine;
+    private final ProcessExclusiveGateway processExclusiveGateway;
 
     @Override
     public Optional<Response> handle(InitProcessExclusiveGatewayCommand command) {
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("value", command.getValue());
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey("process-exclusive-gateway", command.getValue(), variables);
+        processExclusiveGateway.init(ExclusiveGatewayValue.createFromCommand(command.getValue()));
         return Optional.empty();
     }
 }

@@ -1,8 +1,10 @@
-package com.evobank.shopping.submodules.gateways.application.process.inclusive;
+package com.evobank.shopping.submodules.gateways.inclusive.application;
 
 import com.evobank.architecture.domain.bus.Response;
 import com.evobank.architecture.domain.bus.command.ICommandResultHandler;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.shopping.submodules.gateways.inclusive.businessProcess.ProcessInclusiveGateway;
+import com.evobank.shopping.submodules.gateways.inclusive.domain.vo.InclusiveGatewayValue;
 import lombok.AllArgsConstructor;
 import org.camunda.bpm.engine.ProcessEngine;
 
@@ -14,14 +16,11 @@ import java.util.Optional;
 @AllArgsConstructor(onConstructor_ = {@InjectDependency})
 public final class InitProcessInclusiveGatewayCommandHandler implements ICommandResultHandler<InitProcessInclusiveGatewayCommand, Response> {
 
-    private final ProcessEngine processEngine;
+    private final ProcessInclusiveGateway processInclusiveGateway;
 
     @Override
     public Optional<Response> handle(InitProcessInclusiveGatewayCommand command) {
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("value", command.getValue());
-        processEngine.getRuntimeService()
-                .startProcessInstanceByKey("process-inclusive-gateway", command.getValue(), variables);
+        processInclusiveGateway.init(InclusiveGatewayValue.createFromCommand(command.getValue()));
         return Optional.empty();
     }
 }

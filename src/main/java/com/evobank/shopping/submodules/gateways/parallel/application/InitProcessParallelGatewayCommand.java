@@ -1,4 +1,4 @@
-package com.evobank.shopping.submodules.gateways.application.process.parallel;
+package com.evobank.shopping.submodules.gateways.parallel.application;
 
 import com.evobank.architecture.domain.bus.command.ICommand;
 import lombok.AllArgsConstructor;
