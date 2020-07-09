@@ -10,7 +10,7 @@
 
 Los objetos resaltados en AMARILLO estan definidos en el diagrama como interfaces JAVA, ya que mediante la capacidad de SPRING de "Inversion de Dependencias" se inyectan sus implementaciones. Para el caso de "IProductsRepository" Dicha implementación esta ubicada en el paquete "com.evobank.shopping.submodules.shared.products.infrastructure".  
 
-Para "IBpmEngine" su implementación "com.evobank.shopping.infrastructure.bus.bpm.CamundaBpmEngine"
+Para "IBpmEngine" su implementación "com.evobank.shopping.infrastructure.bus.bpm.CamundaBpmEngine"  
 Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationEventBus"  
 
 ### Enlaces de interes
