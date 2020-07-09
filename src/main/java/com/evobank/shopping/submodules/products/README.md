@@ -8,11 +8,10 @@
 ### Diagrama de secuencia: Actualizar Stock
 ![Diagrama de secuencia CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/SequenceArchitectureUpdateStock.png "Flujo completo desde la captura del evento hasta la ejecucion de proceso y los casos de usos")
 
-Los objetos resaltados en AMARILLO estan definidos en el diagrama como interfaces JAVA, ya que mediante la capacidad de SPRING de "Inversion de Dependencias" se inyectan sus implementaciones. Para el caso de "ICartsRepository" Dicha implementación esta ubicada en el paquete "infrastructure".  
+Los objetos resaltados en AMARILLO estan definidos en el diagrama como interfaces JAVA, ya que mediante la capacidad de SPRING de "Inversion de Dependencias" se inyectan sus implementaciones. Para el caso de "IProductsRepository" Dicha implementación esta ubicada en el paquete "com.evobank.shopping.submodules.shared.products.infrastructure".  
 
-Para "ICommandBus" su implementación "com.evobank.shopping.infrastructure.bus.command.InMemoryCommandBus"  
-Para "IQueryBus" su implementación "com.evobank.shopping.infrastructure.bus.query.InMemoryQueryBus"  
-Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationIEventBus"  
+Para "IBpmEngine" su implementación "com.evobank.shopping.infrastructure.bus.bpm.CamundaBpmEngine"
+Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationEventBus"  
 
 ### Enlaces de interes
 

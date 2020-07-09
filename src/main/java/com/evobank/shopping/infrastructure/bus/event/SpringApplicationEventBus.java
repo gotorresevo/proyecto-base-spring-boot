@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SpringApplicationIEventBus implements IEventBus {
+public class SpringApplicationEventBus implements IEventBus {
     private final ApplicationEventPublisher publisher;
 
-    public SpringApplicationIEventBus(ApplicationEventPublisher publisher) {
+    public SpringApplicationEventBus(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 

@@ -12,7 +12,7 @@ Los objetos resaltados en AMARILLO estan definidos en el diagrama como interface
 
 Para "ICommandBus" su implementación "com.evobank.shopping.infrastructure.bus.command.InMemoryCommandBus"  
 Para "IQueryBus" su implementación "com.evobank.shopping.infrastructure.bus.query.InMemoryQueryBus"  
-Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationIEventBus"  
+Para "IEventBus" su implementacion "com.evobank.shopping.infrastructure.bus.event.SpringApplicationEventBus"  
 
 ### Enlaces de interes
 
