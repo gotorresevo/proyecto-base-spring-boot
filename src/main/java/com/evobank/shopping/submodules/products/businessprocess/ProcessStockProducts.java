@@ -1,7 +1,7 @@
 package com.evobank.shopping.submodules.products.businessprocess;
 
 import com.evobank.architecture.businessprocess.BusinessProcess;
-import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
+import com.evobank.architecture.businessprocess.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import com.evobank.shopping.submodules.products.domain.vo.ProductId;
 import com.evobank.shopping.submodules.products.domain.vo.ProductQuantityToSubtract;

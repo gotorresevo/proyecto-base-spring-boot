@@ -8,6 +8,7 @@ import com.evobank.architecture.domain.bus.event.DomainEventSubscriber;
 import com.evobank.architecture.domain.service.DomainService;
 import com.evobank.architecture.infrastructure.Adapter;
 import com.evobank.architecture.infrastructure.InjectDependency;
+import com.evobank.architecture.infrastructure.Task;
 import com.evobank.architecture.usecases.CaseOfUse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.FilterType;
 		CommandHandler.class,
 		QueryHandler.class,
 		BusinessProcess.class,
+		Task.class,
 		CaseOfUse.class,
 		Adapter.class,
 		DomainService.class,

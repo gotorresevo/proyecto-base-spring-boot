@@ -1,4 +1,4 @@
-package com.evobank.architecture.domain.bus.bpm;
+package com.evobank.architecture.businessprocess.bpm;
 
 import java.util.Map;
 import java.util.stream.Stream;

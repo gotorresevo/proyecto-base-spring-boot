@@ -1,6 +1,6 @@
 package com.evobank.shopping.infrastructure.bus.bpm;
 
-import com.evobank.architecture.domain.bus.bpm.IBpmEngine;
+import com.evobank.architecture.businessprocess.bpm.IBpmEngine;
 import com.evobank.architecture.infrastructure.InjectDependency;
 import lombok.AllArgsConstructor;
 import org.camunda.bpm.engine.HistoryService;
