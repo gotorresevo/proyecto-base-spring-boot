@@ -12,9 +12,7 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 ##### Diagrama de secuencia de la arquitectura capturando un evento sin BPM
 ![Diagrama de secuencia de la Arquitectura Capturando Evento](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/SequenceArquitecturaEventDomain.png "Diagrama de secuencia de la arquitectura capturando Evento")
 
-### Diagrama de casos de uso del ejemplo base
-![Diagrama de casos de uso del ejemplo base](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/UsesCases.png "Diagrama de caso de uso del ejemplo base")
-##### Cobertura de las pruebas unitarias del componente Base
+### Cobertura de las pruebas unitarias del componente Base
 ![Cobertura de las pruebas](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTest.png "Cobertura de las pruebas")
 ##### Cobertura de las pruebas unitarias del componente sin BPM
 ![Cobertura de las pruebas Sin Bpm](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTestWithoutBpm.png "Cobertura de las pruebas Sin Bpm")
@@ -24,10 +22,10 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 ![Cobertura de las pruebas capturando Evento](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTestEventDomain.png "Cobertura de las pruebas campturando Evento")
 
 ## Cobertura del caso de uso
-Cubre las capas de:  application, usecases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el caso de uso cumple con los requisitos del negocio.
+Cubre las capas de:  Application, Business Process, Use Cases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el caso de uso cumple con los requisitos del negocio.
 
 ## Cobertura del Controlador
-Cubre las capas de:  controllers, application, usecases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el controlador reciba y retorne lo especificado en el Open Api Specification (Swagger).  
+Cubre las capas de:  Controllers, Application, Business Process, Use Cases y Domain. Para esta cobertura se propone Mockear los objetos de tipo "IRepository" y "IEventBus". La intension de esta cobertura es validar que el controlador reciba y retorne lo especificado en el Open Api Specification (Swagger).  
 
 ### Enlaces de interes
 
