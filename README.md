@@ -14,7 +14,7 @@ Proyecto de referencia para construir aplicaciones Spring Boot. La siguiente es 
 
 ### Cobertura de las pruebas unitarias del componente Base
 ![Cobertura de las pruebas](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTest.png "Cobertura de las pruebas")
-##### Cobertura de las pruebas unitarias del componente sin BPM
+##### Cobertura de las pruebas unitarias del componente sin la capa de Business Process
 ![Cobertura de las pruebas Sin Bpm](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTestWithoutBpm.png "Cobertura de las pruebas Sin Bpm")
 ##### Cobertura de las pruebas unitarias del componente capturando evento
 ![Cobertura de las pruebas capturando Evento Bpm](https://github.com/gotorresevo/proyecto-base-spring-boot/raw/camunda/assets/ComponentTestEventDomainBpm.png "Cobertura de las pruebas campturando Evento con Bpm")
@@ -34,4 +34,5 @@ Cubre las capas de:  Controllers, Application, Business Process, Use Cases y Dom
 [Ver como se implemento el submodulo CARTS del modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/camunda/src/main/java/com/evobank/shopping/submodules/carts)  
 [Ver como se implemento las pruebas unitarias del Controlador para CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/camunda/src/test/java/com/evobank/shopping/controllers)  
 [Ver como se implemento las pruebas unitarias del caso de uso CREAR CARRITO](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/camunda/src/test/java/com/evobank/shopping/submodules)  
+[Ver como se implemento el submodulo PRODUCTS del modulo Shopping](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/camunda/src/main/java/com/evobank/shopping/submodules/products) 
 [Configuracion de Sonar en local](https://github.com/gotorresevo/proyecto-base-spring-boot/tree/camunda/sonarqube)  
