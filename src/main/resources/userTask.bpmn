@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0fr9mxs" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
   <bpmn:process id="process-user-task" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="inicio">
       <bpmn:outgoing>SequenceFlow_1fp17al</bpmn:outgoing>
@@ -10,6 +10,25 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_08ln7rm" sourceRef="test-user-task" targetRef="EndEvent_0x6ir2l" />
     <bpmn:userTask id="test-user-task" name="Test User Task">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="firstname" label="Primer Nombre" type="string" defaultValue="Gerlin" >
+            <camunda:validation>
+               <camunda:constraint name="maxlength" config="25" />
+               <camunda:constraint name="required" />
+            </camunda:validation>
+           </camunda:formField>
+          <camunda:formField
+            id="lastname" label="Last Name" type="string">
+            <camunda:validation>
+               <camunda:constraint name="maxlength" config="25" />
+               <camunda:constraint name="required" />
+            </camunda:validation>
+        	</camunda:formField>
+          <camunda:formField
+              id="dateOfBirth" label="Date of Birth" type="date" />
+          </camunda:formData>
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1fp17al</bpmn:incoming>
       <bpmn:outgoing>Flow_08ln7rm</bpmn:outgoing>
     </bpmn:userTask>
