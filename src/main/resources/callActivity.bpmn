@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1yzjbzy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:process id="process-call-activity" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1i81qpv</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1i81qpv" sourceRef="StartEvent_1" targetRef="subprocess-test-send-task" />
+    <bpmn:endEvent id="Event_0brdje7">
+      <bpmn:incoming>Flow_0swfjv2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0swfjv2" sourceRef="subprocess-test-send-task" targetRef="Event_0brdje7" />
+    <bpmn:callActivity id="subprocess-test-send-task" name="Subproceso Test Send Task" calledElement="process-send-task">
+      <bpmn:incoming>Flow_1i81qpv</bpmn:incoming>
+      <bpmn:outgoing>Flow_0swfjv2</bpmn:outgoing>
+    </bpmn:callActivity>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="process-call-activity">
+      <bpmndi:BPMNEdge id="Flow_1i81qpv_di" bpmnElement="Flow_1i81qpv">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="280" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0swfjv2_di" bpmnElement="Flow_0swfjv2">
+        <di:waypoint x="380" y="117" />
+        <di:waypoint x="452" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0brdje7_di" bpmnElement="Event_0brdje7">
+        <dc:Bounds x="452" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rjjb4w_di" bpmnElement="subprocess-test-send-task">
+        <dc:Bounds x="280" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
